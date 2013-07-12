@@ -89,12 +89,18 @@
       (crate/html view)
       view)))
 
-(defn trigger-dom [dom evt args]
+(defn- trigger-dom [dom evt args]
   (js/jQuery.prototype.trigger.apply
     (jayq/$ dom)
     (into-array (cons (name evt) args))))
 
-(defn raise! [id trigger & parameters]
+(defn raise!
+  "Raises an event on a presenter, which is propagated
+   like a DOM event and can be picked ob by parent
+   presenters. Extra parameter can be passed when raising,
+   which will be visisble to every behaviour that gets
+   called as a result"
+  [id trigger & parameters]
   (let [instance (->instance (->id id))]
     (trigger-dom
       (:view instance)
@@ -112,7 +118,11 @@
                  (recur (jayq/parent node))))]
     (int id)))
 
-(defn trigger! [id trigger & parameters]
+(defn trigger!
+  "Directly trigger an event on a presenter. This event won't be
+   propagated and will only result in reactions of the beaviours
+   of this presenter"
+  [id trigger & parameters]
   (let [instance (->instance id)]
     (doseq [behavior (->behaviors instance)]
       (when (contains? (set (:triggers behavior)) trigger)
@@ -200,7 +210,7 @@
   (let [behaviors (set behaviors)]
     (update-behaviors id (partial remove behaviors))))
 
-(defn set! [id & kvs]
+(defn ! [id & kvs]
   (let [id      (->id id)
         changes (apply hash-map kvs)]
     (swap! application
@@ -211,4 +221,4 @@
   id)
 
 (defn update! [id k f & args]
-  (graphite.ui.presenter/set! id k (apply f (property (->id id) k) args)))
+  (! id k (apply f (property (->id id) k) args)))
