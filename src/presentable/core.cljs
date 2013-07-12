@@ -30,7 +30,9 @@
   [type id]
   (get-in @application [type id]))
 
-(defn property [id k]
+(defn property
+  "Return an application property"
+  [id k]
   (get-in @application [:instances id k]))
 
 (defn ->instance
@@ -190,8 +192,7 @@
     (let [id       (next-id)
           instance (make-instance prototype id args)
           view     (assemble instance)
-          result   (assoc instance :view view)
-          ]
+          result   (assoc instance :view view)]
       (doto (jayq/$ view)
         (jayq/attr :presenter id)
         (register-triggers instance))
@@ -201,16 +202,18 @@
 
 (defn update-behaviors [id f & args]
   (let [id (->id id)]
-  	(swap! application update-in [:instances id :behaviors] f args)))
+    (swap! application update-in [:instances id :behaviors] f args)))
 
 (defn add-behaviors! [id & behaviors]
-  (update-behaviors id concat behaviors))
+  (apply update-behaviors id concat behaviors))
 
 (defn rem-behaviors! [id & behaviors]
   (let [behaviors (set behaviors)]
-    (update-behaviors id (partial remove behaviors))))
+    (apply update-behaviors id (partial remove behaviors))))
 
-(defn ! [id & kvs]
+(defn !
+  "Set a property of a presenter"
+  [id & kvs]
   (let [id      (->id id)
         changes (apply hash-map kvs)]
     (swap! application
@@ -220,5 +223,8 @@
     (trigger-change! id :update (keys changes)))
   id)
 
-(defn update! [id k f & args]
+(defn update!
+  "Update a presenter with a function along the lines
+   of update-in"
+  [id k f & args]
   (! id k (apply f (property (->id id) k) args)))

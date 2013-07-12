@@ -3,7 +3,8 @@
   :hooks           [leiningen.cljsbuild]
   :plugins         [[lein-cljsbuild "0.3.2"]]
   :dependencies    [[org.clojure/clojure "1.5.1"]]
-  :profiles        {:dev {:dependencies [[jayq        "2.4.0"]
+  :profiles        {:dev {:dependencies [[crate       "0.2.4"]
+                                         [jayq        "2.4.0"]
                                          [mocha-latte "0.1.1"]
                                          [chai-latte  "0.1.2"]
                                          [tbn         "0.1.0-SNAPSHOT"]]}}
@@ -16,7 +17,10 @@
      :compiler
      {:pretty-print  true,
       :output-to     "test/unit.js",
-      :optimizations :simple
-      :foreign-libs  [{:file     "libs/async.js"
-                       :provides ["async"]}]}}]}
-
+      :optimizations :simple}}
+    {:source-paths ["src" "examples/menu"],
+     :id "menu",
+     :compiler
+     {:pretty-print  true,
+      :output-to     "examples/menu/menu.js",
+      :optimizations :simple}}]})
