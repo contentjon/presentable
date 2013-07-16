@@ -23,4 +23,11 @@
      :compiler
      {:pretty-print  true,
       :output-to     "examples/menu/menu.js",
+      :optimizations :simple}}
+    {:source-paths ["src" "examples/pie"],
+     :id "pie",
+     :compiler
+     {:pretty-print  true,
+      :output-to     "examples/pie/pie.js",
       :optimizations :simple}}]})
+

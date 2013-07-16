@@ -103,11 +103,7 @@
    which will be visisble to every behaviour that gets
    called as a result"
   [id trigger & parameters]
-  (let [instance (->instance (->id id))]
-    (trigger-dom
-      (:view instance)
-      trigger
-      parameters)))
+  (trigger-dom (view-of id) trigger parameters))
 
 (defn- dom->botid
   "Returns the presenter id of the nearest parent,
@@ -125,7 +121,7 @@
    propagated and will only result in reactions of the beaviours
    of this presenter"
   [id trigger & parameters]
-  (let [instance (->instance id)]
+  (let [instance (->instance (->id id))]
     (doseq [behavior (->behaviors instance)]
       (when (contains? (set (:triggers behavior)) trigger)
         (when-let [reaction (:reaction behavior)]
