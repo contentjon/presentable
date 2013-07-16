@@ -61,8 +61,8 @@
   :triggers [:.click]
   :reaction #(ui/raise! %1 :color-picked (:color %1)))
 
-;; prevent the default behavior of links for menu items, which
-;; would otherwise reload the page
+;; adding this behavior prevents the default behavior of links,
+;; which would otherwise reload the page
 
 (behavior :prevent-default
   :triggers [:.click]
