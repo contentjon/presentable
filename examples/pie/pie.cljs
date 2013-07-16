@@ -55,7 +55,7 @@
   :triggers [:button.click]
   :reaction #(tbn/conj! (:collection %) {:data {:a 1 :b 1 :c 1}}))
 
-;; this behavior creates a new forms when a model is added
+;; this behavior creates a new form when a model is added
 ;; the new form is set to edit the properties of the new model
 
 (behavior :edit-model
