@@ -18,3 +18,14 @@
     (doto (:model p)
       (evt/on :changed #(ui/trigger! p :.changed %1 %2))
       (evt/on :error #(ui/raise! p :.error %1 %2)))))
+
+(defn update-cmd [dom n]
+  [:update-in [:data] :assoc n (jayq/val dom)])
+
+(behavior :update-model
+  :triggers [:.change]
+  :reaction
+  (fn [form evt]
+    (let [dom (jayq/$ (.-target evt))
+          n   (keyword (jayq/attr dom "name"))]
+      (tbn/update! (:model form) (update-cmd dom n)))))
