@@ -3389,22 +3389,22 @@ cljs.core.with_meta = function with_meta(b, c) {
   var d = cljs.core.fn_QMARK_.call(null, b);
   d && (d = b ? ((d = b.cljs$lang$protocol_mask$partition0$ & 262144) ? d : b.cljs$core$IWithMeta$) || (b.cljs$lang$protocol_mask$partition0$ ? 0 : cljs.core.type_satisfies_.call(null, cljs.core.IWithMeta, b)) : cljs.core.type_satisfies_.call(null, cljs.core.IWithMeta, b), d = !d);
   return d ? with_meta.call(null, function() {
-    if(void 0 === cljs.core.t4390) {
-      cljs.core.t4390 = {};
-      cljs.core.t4390 = function(b, c, d, e) {
+    if(void 0 === cljs.core.t7789) {
+      cljs.core.t7789 = {};
+      cljs.core.t7789 = function(b, c, d, e) {
         this.meta = b;
         this.o = c;
         this.with_meta = d;
-        this.meta4391 = e;
+        this.meta7790 = e;
         this.cljs$lang$protocol_mask$partition1$ = 0;
         this.cljs$lang$protocol_mask$partition0$ = 393217
       };
-      cljs.core.t4390.cljs$lang$type = !0;
-      cljs.core.t4390.cljs$lang$ctorStr = "cljs.core/t4390";
-      cljs.core.t4390.cljs$lang$ctorPrWriter = function(b, c) {
-        return cljs.core._write.call(null, c, "cljs.core/t4390")
+      cljs.core.t7789.cljs$lang$type = !0;
+      cljs.core.t7789.cljs$lang$ctorStr = "cljs.core/t7789";
+      cljs.core.t7789.cljs$lang$ctorPrWriter = function(b, c) {
+        return cljs.core._write.call(null, c, "cljs.core/t7789")
       };
-      var d = cljs.core.t4390.prototype, f = function(b, c) {
+      var d = cljs.core.t7789.prototype, f = function(b, c) {
         return cljs.core.apply.call(null, b.o, c)
       }, g = function(b, c) {
         var b = this, d = null;
@@ -3418,19 +3418,19 @@ cljs.core.with_meta = function with_meta(b, c) {
       };
       g.cljs$core$IFn$_invoke$arity$variadic = f;
       d.call = g;
-      cljs.core.t4390.prototype.apply = function(b, c) {
+      cljs.core.t7789.prototype.apply = function(b, c) {
         b = this;
         return b.call.apply(b, [b].concat(c.slice()))
       };
-      cljs.core.t4390.prototype.cljs$core$Fn$ = !0;
-      cljs.core.t4390.prototype.cljs$core$IMeta$_meta$arity$1 = function() {
-        return this.meta4391
+      cljs.core.t7789.prototype.cljs$core$Fn$ = !0;
+      cljs.core.t7789.prototype.cljs$core$IMeta$_meta$arity$1 = function() {
+        return this.meta7790
       };
-      cljs.core.t4390.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, c) {
-        return new cljs.core.t4390(this.meta, this.o, this.with_meta, c)
+      cljs.core.t7789.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, c) {
+        return new cljs.core.t7789(this.meta, this.o, this.with_meta, c)
       }
     }
-    return new cljs.core.t4390(c, b, with_meta, null)
+    return new cljs.core.t7789(c, b, with_meta, null)
   }(), c) : cljs.core._with_meta.call(null, b, c)
 };
 cljs.core.meta = function(a) {
@@ -12980,153 +12980,6 @@ presentable.examples.pie.d3.ease = function() {
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b
 }();
-var tbn = {mutable:{}};
-tbn.mutable.IMCollection = {};
-tbn.mutable._conj_BANG_ = function(a, b) {
-  var c;
-  c = a ? a.tbn$mutable$IMCollection$_conj_BANG_$arity$2 : a;
-  if(c) {
-    return a.tbn$mutable$IMCollection$_conj_BANG_$arity$2(a, b)
-  }
-  c = tbn.mutable._conj_BANG_[goog.typeOf(null == a ? null : a)];
-  if(!c && (c = tbn.mutable._conj_BANG_._, !c)) {
-    throw cljs.core.missing_protocol.call(null, "IMCollection.-conj!", a);
-  }
-  return c.call(null, a, b)
-};
-tbn.mutable.IMStack = {};
-tbn.mutable._pop_BANG_ = function(a) {
-  var b;
-  b = a ? a.tbn$mutable$IMStack$_pop_BANG_$arity$1 : a;
-  if(b) {
-    return a.tbn$mutable$IMStack$_pop_BANG_$arity$1(a)
-  }
-  b = tbn.mutable._pop_BANG_[goog.typeOf(null == a ? null : a)];
-  if(!b && (b = tbn.mutable._pop_BANG_._, !b)) {
-    throw cljs.core.missing_protocol.call(null, "IMStack.-pop!", a);
-  }
-  return b.call(null, a)
-};
-tbn.mutable.IMUpdate = {};
-tbn.mutable._update_BANG_ = function(a, b) {
-  var c;
-  c = a ? a.tbn$mutable$IMUpdate$_update_BANG_$arity$2 : a;
-  if(c) {
-    return a.tbn$mutable$IMUpdate$_update_BANG_$arity$2(a, b)
-  }
-  c = tbn.mutable._update_BANG_[goog.typeOf(null == a ? null : a)];
-  if(!c && (c = tbn.mutable._update_BANG_._, !c)) {
-    throw cljs.core.missing_protocol.call(null, "IMUpdate.-update!", a);
-  }
-  return c.call(null, a, b)
-};
-tbn.mutable.IMSetable = {};
-tbn.mutable._reset_BANG_ = function(a, b) {
-  var c;
-  c = a ? a.tbn$mutable$IMSetable$_reset_BANG_$arity$2 : a;
-  if(c) {
-    return a.tbn$mutable$IMSetable$_reset_BANG_$arity$2(a, b)
-  }
-  c = tbn.mutable._reset_BANG_[goog.typeOf(null == a ? null : a)];
-  if(!c && (c = tbn.mutable._reset_BANG_._, !c)) {
-    throw cljs.core.missing_protocol.call(null, "IMSetable.-reset!", a);
-  }
-  return c.call(null, a, b)
-};
-tbn.mutable.IMAssociative = {};
-tbn.mutable._assoc_BANG_ = function(a, b, c) {
-  var d;
-  d = a ? a.tbn$mutable$IMAssociative$_assoc_BANG_$arity$3 : a;
-  if(d) {
-    return a.tbn$mutable$IMAssociative$_assoc_BANG_$arity$3(a, b, c)
-  }
-  d = tbn.mutable._assoc_BANG_[goog.typeOf(null == a ? null : a)];
-  if(!d && (d = tbn.mutable._assoc_BANG_._, !d)) {
-    throw cljs.core.missing_protocol.call(null, "IMAssociative.-assoc!", a);
-  }
-  return d.call(null, a, b, c)
-};
-tbn.mutable.IMMap = {};
-tbn.mutable._dissoc_BANG_ = function(a, b) {
-  var c;
-  c = a ? a.tbn$mutable$IMMap$_dissoc_BANG_$arity$2 : a;
-  if(c) {
-    return a.tbn$mutable$IMMap$_dissoc_BANG_$arity$2(a, b)
-  }
-  c = tbn.mutable._dissoc_BANG_[goog.typeOf(null == a ? null : a)];
-  if(!c && (c = tbn.mutable._dissoc_BANG_._, !c)) {
-    throw cljs.core.missing_protocol.call(null, "IMMap.-dissoc!", a);
-  }
-  return c.call(null, a, b)
-};
-tbn.mutable.conj_BANG_ = tbn.mutable._conj_BANG_;
-tbn.mutable.pop_BANG_ = tbn.mutable._pop_BANG_;
-tbn.mutable.update_BANG_ = tbn.mutable._update_BANG_;
-tbn.mutable.reset_BANG_ = tbn.mutable._reset_BANG_;
-tbn.mutable.assoc_BANG_ = tbn.mutable._assoc_BANG_;
-tbn.mutable.dissoc_BANG_ = tbn.mutable._dissoc_BANG_;
-tbn.store = {};
-tbn.store.IStore = {};
-tbn.store._create_BANG_ = function(a, b, c, d) {
-  var e;
-  e = a ? a.tbn$store$IStore$_create_BANG_$arity$4 : a;
-  if(e) {
-    return a.tbn$store$IStore$_create_BANG_$arity$4(a, b, c, d)
-  }
-  e = tbn.store._create_BANG_[goog.typeOf(null == a ? null : a)];
-  if(!e && (e = tbn.store._create_BANG_._, !e)) {
-    throw cljs.core.missing_protocol.call(null, "IStore.-create!", a);
-  }
-  return e.call(null, a, b, c, d)
-};
-tbn.store._update_BANG_ = function(a, b, c, d, e) {
-  var f;
-  f = a ? a.tbn$store$IStore$_update_BANG_$arity$5 : a;
-  if(f) {
-    return a.tbn$store$IStore$_update_BANG_$arity$5(a, b, c, d, e)
-  }
-  f = tbn.store._update_BANG_[goog.typeOf(null == a ? null : a)];
-  if(!f && (f = tbn.store._update_BANG_._, !f)) {
-    throw cljs.core.missing_protocol.call(null, "IStore.-update!", a);
-  }
-  return f.call(null, a, b, c, d, e)
-};
-tbn.store._delete_BANG_ = function(a, b, c, d) {
-  var e;
-  e = a ? a.tbn$store$IStore$_delete_BANG_$arity$4 : a;
-  if(e) {
-    return a.tbn$store$IStore$_delete_BANG_$arity$4(a, b, c, d)
-  }
-  e = tbn.store._delete_BANG_[goog.typeOf(null == a ? null : a)];
-  if(!e && (e = tbn.store._delete_BANG_._, !e)) {
-    throw cljs.core.missing_protocol.call(null, "IStore.-delete!", a);
-  }
-  return e.call(null, a, b, c, d)
-};
-tbn.store._collection = function(a, b) {
-  var c;
-  c = a ? a.tbn$store$IStore$_collection$arity$2 : a;
-  if(c) {
-    return a.tbn$store$IStore$_collection$arity$2(a, b)
-  }
-  c = tbn.store._collection[goog.typeOf(null == a ? null : a)];
-  if(!c && (c = tbn.store._collection._, !c)) {
-    throw cljs.core.missing_protocol.call(null, "IStore.-collection", a);
-  }
-  return c.call(null, a, b)
-};
-tbn.store.create_BANG_ = tbn.store._create_BANG_;
-tbn.store.update_BANG_ = tbn.store._update_BANG_;
-tbn.store.delete_BANG_ = tbn.store._delete_BANG_;
-tbn.store.collection = tbn.store._collection;
-tbn.core = {};
-tbn.core.conj_BANG_ = tbn.mutable.conj_BANG_;
-tbn.core.pop_BANG_ = tbn.mutable.pop_BANG__BANG_;
-tbn.core.update_BANG_ = tbn.mutable.update_BANG_;
-tbn.core.reset_BANG_ = tbn.mutable.reset_BANG_;
-tbn.core.assoc_BANG_ = tbn.mutable.assoc_BANG_;
-tbn.core.dissoc_BANG_ = tbn.mutable.dissoc_BANG_;
-tbn.core.collection = tbn.store.collection;
 var clojure = {string:{}};
 clojure.string.seq_reverse = function(a) {
   return cljs.core.reduce.call(null, cljs.core.conj, cljs.core.List.EMPTY, a)
@@ -17806,92 +17659,199 @@ presentable.core.update_BANG_ = function() {
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b
 }();
-tbn.commands = {};
-tbn.commands.command__GT_fn = function() {
-  var a = cljs.core.atom.call(null, cljs.core.ObjMap.EMPTY), b = cljs.core.atom.call(null, cljs.core.ObjMap.EMPTY), c = cljs.core.atom.call(null, cljs.core.ObjMap.EMPTY), d = cljs.core.atom.call(null, cljs.core.ObjMap.EMPTY), e = cljs.core.get.call(null, cljs.core.ObjMap.EMPTY, "\ufdd0:hierarchy", cljs.core.get_global_hierarchy.call(null)), f = cljs.core.MultiFn, g = function(a, b) {
-    1 < arguments.length && cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0);
-    return a
-  };
-  g.cljs$lang$maxFixedArity = 1;
-  g.cljs$lang$applyTo = function(a) {
-    var b = cljs.core.first(a);
-    cljs.core.rest(a);
-    return b
-  };
-  g.cljs$core$IFn$_invoke$arity$variadic = function(a) {
-    return a
-  };
-  return new f("command->fn", g, "\ufdd0:default", e, a, b, c, d)
-}();
-tbn.commands.cmd__GT_fn = function(a) {
-  return cljs.core.apply.call(null, tbn.commands.command__GT_fn, a)
+presentable.examples.pie.views = {};
+presentable.examples.pie.views.children_in = function(a, b) {
+  return cljs.core.conj.call(null, b, cljs.core.map.call(null, presentable.core.view_of, (new cljs.core.Keyword("\ufdd0:children")).call(null, a)))
 };
-tbn.commands.apply_cmd = function(a, b) {
-  return cljs.core.apply.call(null, tbn.commands.cmd__GT_fn.call(null, a), b)
+presentable.examples.pie.views.ink_grid = function(a) {
+  return presentable.examples.pie.views.children_in.call(null, a, cljs.core.PersistentVector.fromArray(["\ufdd0:div.ink-grid", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:style", "margin-top:20%"], !0)], !0))
 };
-cljs.core._add_method.call(null, tbn.commands.command__GT_fn, "\ufdd0:set", function(a, b) {
-  return cljs.core.constantly.call(null, b)
-});
-cljs.core._add_method.call(null, tbn.commands.command__GT_fn, "\ufdd0:inc", function() {
-  return cljs.core.inc
-});
-cljs.core._add_method.call(null, tbn.commands.command__GT_fn, "\ufdd0:dec", function() {
-  return cljs.core.dec
-});
-cljs.core._add_method.call(null, tbn.commands.command__GT_fn, "\ufdd0:assoc", function() {
-  var a = function(a, b) {
-    return function(a) {
-      return cljs.core.apply.call(null, cljs.core.assoc, a, b)
-    }
-  }, b = function(b, d) {
-    var e = null;
-    1 < arguments.length && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
-    return a.call(this, b, e)
-  };
-  b.cljs$lang$maxFixedArity = 1;
-  b.cljs$lang$applyTo = function(b) {
-    var d = cljs.core.first(b), b = cljs.core.rest(b);
-    return a(d, b)
-  };
-  b.cljs$core$IFn$_invoke$arity$variadic = a;
-  return b
-}());
-cljs.core._add_method.call(null, tbn.commands.command__GT_fn, "\ufdd0:dissoc", function() {
-  var a = function(a, b) {
-    return function(a) {
-      return cljs.core.apply.call(null, cljs.core.dissoc, a, b)
-    }
-  }, b = function(b, d) {
-    var e = null;
-    1 < arguments.length && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
-    return a.call(this, b, e)
-  };
-  b.cljs$lang$maxFixedArity = 1;
-  b.cljs$lang$applyTo = function(b) {
-    var d = cljs.core.first(b), b = cljs.core.rest(b);
-    return a(d, b)
-  };
-  b.cljs$core$IFn$_invoke$arity$variadic = a;
-  return b
-}());
-cljs.core._add_method.call(null, tbn.commands.command__GT_fn, "\ufdd0:update-in", function() {
-  var a = function(a, b, e, f) {
-    return function(a) {
-      return cljs.core.update_in.call(null, a, b, tbn.commands.cmd__GT_fn.call(null, cljs.core.cons.call(null, e, f)))
-    }
-  }, b = function(b, d, e, f) {
-    var g = null;
-    3 < arguments.length && (g = cljs.core.array_seq(Array.prototype.slice.call(arguments, 3), 0));
-    return a.call(this, b, d, e, g)
-  };
-  b.cljs$lang$maxFixedArity = 3;
-  b.cljs$lang$applyTo = function(b) {
-    var d = cljs.core.first(b), b = cljs.core.next(b), e = cljs.core.first(b), b = cljs.core.next(b), f = cljs.core.first(b), b = cljs.core.rest(b);
-    return a(d, e, f, b)
-  };
-  b.cljs$core$IFn$_invoke$arity$variadic = a;
-  return b
-}());
+presentable.examples.pie.views.ink_group = function(a) {
+  return presentable.examples.pie.views.children_in.call(null, a, cljs.core.PersistentVector.fromArray(["\ufdd0:div", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:class", "column-group gutters"], !0)], !0))
+};
+presentable.examples.pie.views.ink_column = function(a) {
+  return presentable.examples.pie.views.children_in.call(null, a, cljs.core.PersistentVector.fromArray(["\ufdd0:div", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:class", [cljs.core.str("large-"), cljs.core.str((new cljs.core.Keyword("\ufdd0:width")).call(null, a))].join("")], !0)], !0))
+};
+presentable.examples.pie.views.ink_button = function(a) {
+  return cljs.core.vector.call(null, "\ufdd0:button", cljs.core.PersistentVector.fromArray([cljs.core.keyword.call(null, [cljs.core.str("span."), cljs.core.str(cljs.core.name.call(null, (new cljs.core.Keyword("\ufdd0:icon")).call(null, a)))].join(""))], !0))
+};
+presentable.examples.pie.views.editor = function() {
+  return cljs.core.PersistentVector.fromArray(["\ufdd0:div", presentable.core.view_of.call(null, presentable.core.make.call(null, "\ufdd0:button", "\ufdd0:icon", "\ufdd0:icon-plus")), cljs.core.PersistentVector.fromArray(["\ufdd0:div.models"], !0)], !0)
+};
+presentable.examples.pie.views.pie_form_field = function(a) {
+  var b = cljs.core.nth.call(null, a, 0, null), a = cljs.core.nth.call(null, a, 1, null), b = cljs.core.name.call(null, b);
+  return cljs.core.PersistentVector.fromArray(["\ufdd0:div", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:class", "control-group large-33 medium-33 small-100"], !0), cljs.core.PersistentVector.fromArray(["\ufdd0:div", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:class", "column-group quarter-gutters"], !0), cljs.core.PersistentVector.fromArray(["\ufdd0:label", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:for", b, "\ufdd0:class", "large-20 content-right"], !0), b], !0), cljs.core.PersistentVector.fromArray(["\ufdd0:div", 
+  cljs.core.PersistentArrayMap.fromArray(["\ufdd0:class", "control large-80"], !0), cljs.core.PersistentVector.fromArray(["\ufdd0:input", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:type", "text", "\ufdd0:name", b, "\ufdd0:value", a], !0)], !0)], !0)], !0)], !0)
+};
+presentable.examples.pie.views.ink_form_view = function(a, b) {
+  return cljs.core.PersistentVector.fromArray(["\ufdd0:form.ink-form", cljs.core.vec.call(null, cljs.core.concat.call(null, cljs.core.PersistentVector.fromArray(["\ufdd0:fieldset", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:class", "column-group quarter-gutters"], !0)], !0), cljs.core.map.call(null, a, b)))], !0)
+};
+presentable.examples.pie.views.ink_pie = function(a) {
+  return presentable.examples.pie.views.ink_form_view.call(null, presentable.examples.pie.views.pie_form_field, a)
+};
+presentable.examples.pie.views.pie = function(a) {
+  return d3.layout.pie().call(null, cljs.core.into_array.call(null, a))
+};
+presentable.examples.pie.views.arc = d3.svg.arc().outerRadius(75).innerRadius(45);
+presentable.examples.pie.views.color = d3.scale.ordinal.call(null).range("#98abc5 #8a89a6 #7b6888 #6b486b #a05d56 #d0743c #ff8c00".split(" "));
+presentable.examples.pie.views.d3_pie_chart = function(a, b) {
+  var c = presentable.examples.pie.d3.append.call(null, presentable.examples.pie.d3.select.call(null, presentable.core.view_of.call(null, a)), "\ufdd0:svg");
+  presentable.examples.pie.d3.css.call(null, presentable.examples.pie.d3.attr.call(null, presentable.examples.pie.d3.attr.call(null, presentable.examples.pie.d3.append.call(null, presentable.examples.pie.d3.entered.call(null, presentable.examples.pie.d3.data.call(null, presentable.examples.pie.d3.select_STAR_.call(null, presentable.examples.pie.d3.attr.call(null, presentable.examples.pie.d3.append.call(null, presentable.examples.pie.d3.attr.call(null, presentable.examples.pie.d3.attr.call(null, c, 
+  "\ufdd0:width", 150), "\ufdd0:height", 150), "\ufdd0:g"), "\ufdd0:transform", [cljs.core.str("translate("), cljs.core.str(75), cljs.core.str(","), cljs.core.str(75), cljs.core.str(")")].join("")), "\ufdd0:.arc"), presentable.examples.pie.views.pie.call(null, cljs.core.vals.call(null, b)))), "\ufdd0:path"), "\ufdd0:class", "arc"), "\ufdd0:d", presentable.examples.pie.views.arc), "\ufdd0:fill", function(a, b) {
+    return presentable.examples.pie.views.color.call(null, b)
+  });
+  return c.node()
+};
+presentable.examples.pie.views.d3_update_pie = function(a, b, c) {
+  return presentable.examples.pie.d3.attr.call(null, presentable.examples.pie.d3.data.call(null, presentable.examples.pie.d3.select_STAR_.call(null, presentable.examples.pie.d3.select.call(null, presentable.examples.pie.d3.select.call(null, presentable.core.view_of.call(null, a)), "\ufdd0:g"), "\ufdd0:.arc"), presentable.examples.pie.views.pie.call(null, cljs.core.vals.call(null, (new cljs.core.Keyword("\ufdd0:data")).call(null, c)))), "\ufdd0:d", presentable.examples.pie.views.arc)
+};
+var tbn = {mutable:{}};
+tbn.mutable.IMCollection = {};
+tbn.mutable._conj_BANG_ = function(a, b) {
+  var c;
+  c = a ? a.tbn$mutable$IMCollection$_conj_BANG_$arity$2 : a;
+  if(c) {
+    return a.tbn$mutable$IMCollection$_conj_BANG_$arity$2(a, b)
+  }
+  c = tbn.mutable._conj_BANG_[goog.typeOf(null == a ? null : a)];
+  if(!c && (c = tbn.mutable._conj_BANG_._, !c)) {
+    throw cljs.core.missing_protocol.call(null, "IMCollection.-conj!", a);
+  }
+  return c.call(null, a, b)
+};
+tbn.mutable.IMStack = {};
+tbn.mutable._pop_BANG_ = function(a) {
+  var b;
+  b = a ? a.tbn$mutable$IMStack$_pop_BANG_$arity$1 : a;
+  if(b) {
+    return a.tbn$mutable$IMStack$_pop_BANG_$arity$1(a)
+  }
+  b = tbn.mutable._pop_BANG_[goog.typeOf(null == a ? null : a)];
+  if(!b && (b = tbn.mutable._pop_BANG_._, !b)) {
+    throw cljs.core.missing_protocol.call(null, "IMStack.-pop!", a);
+  }
+  return b.call(null, a)
+};
+tbn.mutable.IMUpdate = {};
+tbn.mutable._update_BANG_ = function(a, b) {
+  var c;
+  c = a ? a.tbn$mutable$IMUpdate$_update_BANG_$arity$2 : a;
+  if(c) {
+    return a.tbn$mutable$IMUpdate$_update_BANG_$arity$2(a, b)
+  }
+  c = tbn.mutable._update_BANG_[goog.typeOf(null == a ? null : a)];
+  if(!c && (c = tbn.mutable._update_BANG_._, !c)) {
+    throw cljs.core.missing_protocol.call(null, "IMUpdate.-update!", a);
+  }
+  return c.call(null, a, b)
+};
+tbn.mutable.IMSetable = {};
+tbn.mutable._reset_BANG_ = function(a, b) {
+  var c;
+  c = a ? a.tbn$mutable$IMSetable$_reset_BANG_$arity$2 : a;
+  if(c) {
+    return a.tbn$mutable$IMSetable$_reset_BANG_$arity$2(a, b)
+  }
+  c = tbn.mutable._reset_BANG_[goog.typeOf(null == a ? null : a)];
+  if(!c && (c = tbn.mutable._reset_BANG_._, !c)) {
+    throw cljs.core.missing_protocol.call(null, "IMSetable.-reset!", a);
+  }
+  return c.call(null, a, b)
+};
+tbn.mutable.IMAssociative = {};
+tbn.mutable._assoc_BANG_ = function(a, b, c) {
+  var d;
+  d = a ? a.tbn$mutable$IMAssociative$_assoc_BANG_$arity$3 : a;
+  if(d) {
+    return a.tbn$mutable$IMAssociative$_assoc_BANG_$arity$3(a, b, c)
+  }
+  d = tbn.mutable._assoc_BANG_[goog.typeOf(null == a ? null : a)];
+  if(!d && (d = tbn.mutable._assoc_BANG_._, !d)) {
+    throw cljs.core.missing_protocol.call(null, "IMAssociative.-assoc!", a);
+  }
+  return d.call(null, a, b, c)
+};
+tbn.mutable.IMMap = {};
+tbn.mutable._dissoc_BANG_ = function(a, b) {
+  var c;
+  c = a ? a.tbn$mutable$IMMap$_dissoc_BANG_$arity$2 : a;
+  if(c) {
+    return a.tbn$mutable$IMMap$_dissoc_BANG_$arity$2(a, b)
+  }
+  c = tbn.mutable._dissoc_BANG_[goog.typeOf(null == a ? null : a)];
+  if(!c && (c = tbn.mutable._dissoc_BANG_._, !c)) {
+    throw cljs.core.missing_protocol.call(null, "IMMap.-dissoc!", a);
+  }
+  return c.call(null, a, b)
+};
+tbn.mutable.conj_BANG_ = tbn.mutable._conj_BANG_;
+tbn.mutable.pop_BANG_ = tbn.mutable._pop_BANG_;
+tbn.mutable.update_BANG_ = tbn.mutable._update_BANG_;
+tbn.mutable.reset_BANG_ = tbn.mutable._reset_BANG_;
+tbn.mutable.assoc_BANG_ = tbn.mutable._assoc_BANG_;
+tbn.mutable.dissoc_BANG_ = tbn.mutable._dissoc_BANG_;
+tbn.store = {};
+tbn.store.IStore = {};
+tbn.store._create_BANG_ = function(a, b, c, d) {
+  var e;
+  e = a ? a.tbn$store$IStore$_create_BANG_$arity$4 : a;
+  if(e) {
+    return a.tbn$store$IStore$_create_BANG_$arity$4(a, b, c, d)
+  }
+  e = tbn.store._create_BANG_[goog.typeOf(null == a ? null : a)];
+  if(!e && (e = tbn.store._create_BANG_._, !e)) {
+    throw cljs.core.missing_protocol.call(null, "IStore.-create!", a);
+  }
+  return e.call(null, a, b, c, d)
+};
+tbn.store._update_BANG_ = function(a, b, c, d, e) {
+  var f;
+  f = a ? a.tbn$store$IStore$_update_BANG_$arity$5 : a;
+  if(f) {
+    return a.tbn$store$IStore$_update_BANG_$arity$5(a, b, c, d, e)
+  }
+  f = tbn.store._update_BANG_[goog.typeOf(null == a ? null : a)];
+  if(!f && (f = tbn.store._update_BANG_._, !f)) {
+    throw cljs.core.missing_protocol.call(null, "IStore.-update!", a);
+  }
+  return f.call(null, a, b, c, d, e)
+};
+tbn.store._delete_BANG_ = function(a, b, c, d) {
+  var e;
+  e = a ? a.tbn$store$IStore$_delete_BANG_$arity$4 : a;
+  if(e) {
+    return a.tbn$store$IStore$_delete_BANG_$arity$4(a, b, c, d)
+  }
+  e = tbn.store._delete_BANG_[goog.typeOf(null == a ? null : a)];
+  if(!e && (e = tbn.store._delete_BANG_._, !e)) {
+    throw cljs.core.missing_protocol.call(null, "IStore.-delete!", a);
+  }
+  return e.call(null, a, b, c, d)
+};
+tbn.store._collection = function(a, b) {
+  var c;
+  c = a ? a.tbn$store$IStore$_collection$arity$2 : a;
+  if(c) {
+    return a.tbn$store$IStore$_collection$arity$2(a, b)
+  }
+  c = tbn.store._collection[goog.typeOf(null == a ? null : a)];
+  if(!c && (c = tbn.store._collection._, !c)) {
+    throw cljs.core.missing_protocol.call(null, "IStore.-collection", a);
+  }
+  return c.call(null, a, b)
+};
+tbn.store.create_BANG_ = tbn.store._create_BANG_;
+tbn.store.update_BANG_ = tbn.store._update_BANG_;
+tbn.store.delete_BANG_ = tbn.store._delete_BANG_;
+tbn.store.collection = tbn.store._collection;
+tbn.core = {};
+tbn.core.conj_BANG_ = tbn.mutable.conj_BANG_;
+tbn.core.pop_BANG_ = tbn.mutable.pop_BANG__BANG_;
+tbn.core.update_BANG_ = tbn.mutable.update_BANG_;
+tbn.core.reset_BANG_ = tbn.mutable.reset_BANG_;
+tbn.core.assoc_BANG_ = tbn.mutable.assoc_BANG_;
+tbn.core.dissoc_BANG_ = tbn.mutable.dissoc_BANG_;
+tbn.core.collection = tbn.store.collection;
 tbn.events = {};
 tbn.events.IObservable = {};
 tbn.events._on = function(a, b, c) {
@@ -18039,6 +17999,116 @@ tbn.events.trigger = function() {
   b.cljs$core$IFn$_invoke$arity$variadic = a;
   return b
 }();
+presentable.examples.pie.model = {};
+presentable.core.behavior.call(null, "\ufdd0:collection", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:init"], !0), "\ufdd0:reaction", function(a) {
+  var b = (new cljs.core.Keyword("\ufdd0:collection")).call(null, a);
+  tbn.events.on.call(null, b, "\ufdd0:added", function(b) {
+    return presentable.core.trigger_BANG_.call(null, a, "\ufdd0:.added", b)
+  });
+  tbn.events.on.call(null, b, "\ufdd0:removed", function(b) {
+    return presentable.core.raise_BANG_.call(null, a, "\ufdd0:.removed", b)
+  });
+  tbn.events.on.call(null, b, "\ufdd0:reset", function() {
+    return presentable.core.raise_BANG_.call(null, a, "\ufdd0:.reset", (new cljs.core.Keyword("\ufdd0:collection")).call(null, a))
+  });
+  return b
+});
+presentable.core.behavior.call(null, "\ufdd0:model", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:init"], !0), "\ufdd0:reaction", function(a) {
+  var b = (new cljs.core.Keyword("\ufdd0:model")).call(null, a);
+  tbn.events.on.call(null, b, "\ufdd0:changed", function(b, d) {
+    return presentable.core.trigger_BANG_.call(null, a, "\ufdd0:.changed", b, d)
+  });
+  tbn.events.on.call(null, b, "\ufdd0:error", function(b, d) {
+    return presentable.core.raise_BANG_.call(null, a, "\ufdd0:.error", b, d)
+  });
+  return b
+});
+tbn.commands = {};
+tbn.commands.command__GT_fn = function() {
+  var a = cljs.core.atom.call(null, cljs.core.ObjMap.EMPTY), b = cljs.core.atom.call(null, cljs.core.ObjMap.EMPTY), c = cljs.core.atom.call(null, cljs.core.ObjMap.EMPTY), d = cljs.core.atom.call(null, cljs.core.ObjMap.EMPTY), e = cljs.core.get.call(null, cljs.core.ObjMap.EMPTY, "\ufdd0:hierarchy", cljs.core.get_global_hierarchy.call(null)), f = cljs.core.MultiFn, g = function(a, b) {
+    1 < arguments.length && cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0);
+    return a
+  };
+  g.cljs$lang$maxFixedArity = 1;
+  g.cljs$lang$applyTo = function(a) {
+    var b = cljs.core.first(a);
+    cljs.core.rest(a);
+    return b
+  };
+  g.cljs$core$IFn$_invoke$arity$variadic = function(a) {
+    return a
+  };
+  return new f("command->fn", g, "\ufdd0:default", e, a, b, c, d)
+}();
+tbn.commands.cmd__GT_fn = function(a) {
+  return cljs.core.apply.call(null, tbn.commands.command__GT_fn, a)
+};
+tbn.commands.apply_cmd = function(a, b) {
+  return cljs.core.apply.call(null, tbn.commands.cmd__GT_fn.call(null, a), b)
+};
+cljs.core._add_method.call(null, tbn.commands.command__GT_fn, "\ufdd0:set", function(a, b) {
+  return cljs.core.constantly.call(null, b)
+});
+cljs.core._add_method.call(null, tbn.commands.command__GT_fn, "\ufdd0:inc", function() {
+  return cljs.core.inc
+});
+cljs.core._add_method.call(null, tbn.commands.command__GT_fn, "\ufdd0:dec", function() {
+  return cljs.core.dec
+});
+cljs.core._add_method.call(null, tbn.commands.command__GT_fn, "\ufdd0:assoc", function() {
+  var a = function(a, b) {
+    return function(a) {
+      return cljs.core.apply.call(null, cljs.core.assoc, a, b)
+    }
+  }, b = function(b, d) {
+    var e = null;
+    1 < arguments.length && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
+    return a.call(this, b, e)
+  };
+  b.cljs$lang$maxFixedArity = 1;
+  b.cljs$lang$applyTo = function(b) {
+    var d = cljs.core.first(b), b = cljs.core.rest(b);
+    return a(d, b)
+  };
+  b.cljs$core$IFn$_invoke$arity$variadic = a;
+  return b
+}());
+cljs.core._add_method.call(null, tbn.commands.command__GT_fn, "\ufdd0:dissoc", function() {
+  var a = function(a, b) {
+    return function(a) {
+      return cljs.core.apply.call(null, cljs.core.dissoc, a, b)
+    }
+  }, b = function(b, d) {
+    var e = null;
+    1 < arguments.length && (e = cljs.core.array_seq(Array.prototype.slice.call(arguments, 1), 0));
+    return a.call(this, b, e)
+  };
+  b.cljs$lang$maxFixedArity = 1;
+  b.cljs$lang$applyTo = function(b) {
+    var d = cljs.core.first(b), b = cljs.core.rest(b);
+    return a(d, b)
+  };
+  b.cljs$core$IFn$_invoke$arity$variadic = a;
+  return b
+}());
+cljs.core._add_method.call(null, tbn.commands.command__GT_fn, "\ufdd0:update-in", function() {
+  var a = function(a, b, e, f) {
+    return function(a) {
+      return cljs.core.update_in.call(null, a, b, tbn.commands.cmd__GT_fn.call(null, cljs.core.cons.call(null, e, f)))
+    }
+  }, b = function(b, d, e, f) {
+    var g = null;
+    3 < arguments.length && (g = cljs.core.array_seq(Array.prototype.slice.call(arguments, 3), 0));
+    return a.call(this, b, d, e, g)
+  };
+  b.cljs$lang$maxFixedArity = 3;
+  b.cljs$lang$applyTo = function(b) {
+    var d = cljs.core.first(b), b = cljs.core.next(b), e = cljs.core.first(b), b = cljs.core.next(b), f = cljs.core.first(b), b = cljs.core.rest(b);
+    return a(d, e, f, b)
+  };
+  b.cljs$core$IFn$_invoke$arity$variadic = a;
+  return b
+}());
 tbn.model = {};
 tbn.model.Model = function(a, b, c, d) {
   this.local = a;
@@ -18077,7 +18147,7 @@ tbn.model.Model.prototype.tbn$mutable$IMUpdate$_update_BANG_$arity$2 = function(
   var c = this;
   return tbn.store.update_BANG_.call(null, c.store, c.collection, (new cljs.core.Keyword("\ufdd0:_id")).call(null, cljs.core.deref.call(null, c.local)), b, function(a, b) {
     if(cljs.core.truth_(a)) {
-      return tbn.events.trigger.call(null, c.channels, "\ufdd0:error", a)
+      return tbn.events.trigger.call(null, c.local, "\ufdd0:error", a)
     }
     var f = cljs.core.deref.call(null, c.local), g = cljs.core.reset_BANG_.call(null, c.local, b);
     return tbn.events.trigger.call(null, c.channels, "\ufdd0:changed", f, g)
@@ -18205,47 +18275,11 @@ tbn.store.memory.make = function() {
 };
 presentable.examples.pie.store = tbn.store.memory.make.call(null);
 presentable.examples.pie.collection = tbn.core.collection.call(null, presentable.examples.pie.store, "\ufdd0:pies");
-presentable.examples.pie.children_in = function(a, b) {
-  return cljs.core.conj.call(null, b, cljs.core.map.call(null, presentable.core.view_of, (new cljs.core.Keyword("\ufdd0:children")).call(null, a)))
-};
-presentable.core.presenter.call(null, "\ufdd0:grid", "\ufdd0:factory", function(a) {
-  return presentable.examples.pie.children_in.call(null, a, cljs.core.PersistentVector.fromArray(["\ufdd0:div.ink-grid", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:style", "margin-top:20%"], !0)], !0))
-});
-presentable.core.presenter.call(null, "\ufdd0:group", "\ufdd0:factory", function(a) {
-  return presentable.examples.pie.children_in.call(null, a, cljs.core.PersistentVector.fromArray(["\ufdd0:div", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:class", "column-group gutters"], !0)], !0))
-});
-presentable.core.presenter.call(null, "\ufdd0:column", "\ufdd0:width", 50, "\ufdd0:factory", function(a) {
-  return presentable.examples.pie.children_in.call(null, a, cljs.core.PersistentVector.fromArray(["\ufdd0:div", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:class", [cljs.core.str("large-"), cljs.core.str((new cljs.core.Keyword("\ufdd0:width")).call(null, a))].join("")], !0)], !0))
-});
-presentable.core.presenter.call(null, "\ufdd0:button", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.click"], !0), "\ufdd0:icon", null, "\ufdd0:factory", function(a) {
-  return cljs.core.vector.call(null, "\ufdd0:button", cljs.core.PersistentVector.fromArray([cljs.core.keyword.call(null, [cljs.core.str("span."), cljs.core.str(cljs.core.name.call(null, (new cljs.core.Keyword("\ufdd0:icon")).call(null, a)))].join(""))], !0))
-});
-presentable.core.presenter.call(null, "\ufdd0:editor", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:button.click", "\ufdd0:.added"], !0), "\ufdd0:behaviors", cljs.core.PersistentVector.fromArray(["\ufdd0:collection", "\ufdd0:add-pie-model", "\ufdd0:edit-model"], !0), "\ufdd0:collection", presentable.examples.pie.collection, "\ufdd0:forms", cljs.core.PersistentVector.EMPTY, "\ufdd0:factory", function() {
-  return cljs.core.PersistentVector.fromArray(["\ufdd0:div", presentable.core.view_of.call(null, presentable.core.make.call(null, "\ufdd0:button", "\ufdd0:icon", "\ufdd0:icon-plus")), cljs.core.PersistentVector.fromArray(["\ufdd0:div.models"], !0)], !0)
-});
-presentable.core.behavior.call(null, "\ufdd0:collection", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:init"], !0), "\ufdd0:reaction", function(a) {
-  var b = (new cljs.core.Keyword("\ufdd0:collection")).call(null, a);
-  tbn.events.on.call(null, b, "\ufdd0:added", function(b) {
-    return presentable.core.trigger_BANG_.call(null, a, "\ufdd0:.added", b)
-  });
-  tbn.events.on.call(null, b, "\ufdd0:removed", function(b) {
-    return presentable.core.raise_BANG_.call(null, a, "\ufdd0:.removed", b)
-  });
-  tbn.events.on.call(null, b, "\ufdd0:reset", function() {
-    return presentable.core.raise_BANG_.call(null, a, "\ufdd0:.reset", (new cljs.core.Keyword("\ufdd0:collection")).call(null, a))
-  });
-  return b
-});
-presentable.core.behavior.call(null, "\ufdd0:model", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:init"], !0), "\ufdd0:reaction", function(a) {
-  var b = (new cljs.core.Keyword("\ufdd0:model")).call(null, a);
-  tbn.events.on.call(null, b, "\ufdd0:changed", function(b, d) {
-    return presentable.core.trigger_BANG_.call(null, a, "\ufdd0:.changed", b, d)
-  });
-  tbn.events.on.call(null, b, "\ufdd0:error", function(b, d) {
-    return presentable.core.raise_BANG_.call(null, a, "\ufdd0:.error", b, d)
-  });
-  return b
-});
+presentable.core.presenter.call(null, "\ufdd0:grid", "\ufdd0:factory", presentable.examples.pie.views.ink_grid);
+presentable.core.presenter.call(null, "\ufdd0:group", "\ufdd0:factory", presentable.examples.pie.views.ink_group);
+presentable.core.presenter.call(null, "\ufdd0:column", "\ufdd0:width", 50, "\ufdd0:factory", presentable.examples.pie.views.ink_column);
+presentable.core.presenter.call(null, "\ufdd0:button", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.click"], !0), "\ufdd0:icon", null, "\ufdd0:factory", presentable.examples.pie.views.ink_button);
+presentable.core.presenter.call(null, "\ufdd0:editor", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:button.click", "\ufdd0:.added"], !0), "\ufdd0:behaviors", cljs.core.PersistentVector.fromArray(["\ufdd0:collection", "\ufdd0:add-pie-model", "\ufdd0:edit-model"], !0), "\ufdd0:collection", presentable.examples.pie.collection, "\ufdd0:forms", cljs.core.PersistentVector.EMPTY, "\ufdd0:factory", presentable.examples.pie.views.editor);
 presentable.core.behavior.call(null, "\ufdd0:add-pie-model", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:button.click"], !0), "\ufdd0:reaction", function(a) {
   return tbn.core.conj_BANG_.call(null, (new cljs.core.Keyword("\ufdd0:collection")).call(null, a), cljs.core.PersistentArrayMap.fromArray(["\ufdd0:data", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:a", 1, "\ufdd0:b", 1, "\ufdd0:c", 1], !0)], !0))
 });
@@ -18255,20 +18289,12 @@ presentable.core.behavior.call(null, "\ufdd0:edit-model", "\ufdd0:triggers", clj
   jayq.core.append.call(null, jayq.core.$.call(null, "\ufdd0:.models"), presentable.core.view_of.call(null, c));
   return presentable.core.update_BANG_.call(null, a, "\ufdd0:forms", cljs.core.conj, c)
 });
-presentable.examples.pie.pie_form_field = function(a) {
-  var b = cljs.core.nth.call(null, a, 0, null), a = cljs.core.nth.call(null, a, 1, null), b = cljs.core.name.call(null, b);
-  return cljs.core.PersistentVector.fromArray(["\ufdd0:div", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:class", "control-group large-33 medium-33 small-100"], !0), cljs.core.PersistentVector.fromArray(["\ufdd0:div", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:class", "column-group quarter-gutters"], !0), cljs.core.PersistentVector.fromArray(["\ufdd0:label", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:for", b, "\ufdd0:class", "large-20 content-right"], !0), b], !0), cljs.core.PersistentVector.fromArray(["\ufdd0:div", 
-  cljs.core.PersistentArrayMap.fromArray(["\ufdd0:class", "control large-80"], !0), cljs.core.PersistentVector.fromArray(["\ufdd0:input", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:type", "text", "\ufdd0:name", b, "\ufdd0:value", a], !0)], !0)], !0)], !0)], !0)
-};
-presentable.examples.pie.ink_form_view = function(a, b) {
-  return cljs.core.PersistentVector.fromArray(["\ufdd0:form.ink-form", cljs.core.vec.call(null, cljs.core.concat.call(null, cljs.core.PersistentVector.fromArray(["\ufdd0:fieldset", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:class", "column-group quarter-gutters"], !0)], !0), cljs.core.map.call(null, a, b)))], !0)
-};
 presentable.core.presenter.call(null, "\ufdd0:pie-form", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.changed", "\ufdd0:.error", "\ufdd0:.change"], !0), "\ufdd0:behaviors", cljs.core.PersistentVector.fromArray(["\ufdd0:model", "\ufdd0:update-model"], !0), "\ufdd0:factory", function(a) {
-  return presentable.examples.pie.ink_form_view.call(null, presentable.examples.pie.pie_form_field, (new cljs.core.Keyword("\ufdd0:data")).call(null, cljs.core.deref.call(null, (new cljs.core.Keyword("\ufdd0:model")).call(null, a))))
+  return presentable.examples.pie.views.ink_pie.call(null, (new cljs.core.Keyword("\ufdd0:data")).call(null, cljs.core.deref.call(null, (new cljs.core.Keyword("\ufdd0:model")).call(null, a))))
 });
 presentable.core.behavior.call(null, "\ufdd0:update-model", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.change"], !0), "\ufdd0:reaction", function(a, b) {
   var c = jayq.core.$.call(null, b.target), d = cljs.core.keyword.call(null, jayq.core.attr.call(null, c, "name"));
-  return tbn.core.update_BANG_.call(null, (new cljs.core.Keyword("\ufdd0:model")).call(null, a), cljs.core.PersistentVector.fromArray(["\ufdd0:update-in", cljs.core.PersistentVector.fromArray(["\ufdd0:data"], !0), "\ufdd0:assoc", d, jayq.core.attr.call(null, c, "\ufdd0:value")], !0))
+  return tbn.core.update_BANG_.call(null, (new cljs.core.Keyword("\ufdd0:model")).call(null, a), cljs.core.PersistentVector.fromArray(["\ufdd0:update-in", cljs.core.PersistentVector.fromArray(["\ufdd0:data"], !0), "\ufdd0:assoc", d, jayq.core.val.call(null, c)], !0))
 });
 presentable.core.presenter.call(null, "\ufdd0:pies", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.added"], !0), "\ufdd0:behaviors", cljs.core.PersistentVector.fromArray(["\ufdd0:collection", "\ufdd0:add-pie"], !0), "\ufdd0:collection", presentable.examples.pie.collection, "\ufdd0:factory", function() {
   return cljs.core.vector.call(null, "\ufdd0:div.pies")
@@ -18276,15 +18302,10 @@ presentable.core.presenter.call(null, "\ufdd0:pies", "\ufdd0:triggers", cljs.cor
 presentable.core.behavior.call(null, "\ufdd0:add-pie", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.added"], !0), "\ufdd0:reaction", function(a, b) {
   return presentable.core.update_BANG_.call(null, a, "\ufdd0:children", cljs.core.conj, presentable.core.make.call(null, "\ufdd0:pie", "\ufdd0:parent", a, "\ufdd0:model", b))
 });
-presentable.examples.pie.pie = function(a) {
-  return d3.layout.pie().call(null, cljs.core.into_array.call(null, a))
-};
-presentable.examples.pie.arc = d3.svg.arc().outerRadius(75).innerRadius(45);
 presentable.core.presenter.call(null, "\ufdd0:pie", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.changed"], !0), "\ufdd0:behaviors", cljs.core.PersistentVector.fromArray(["\ufdd0:model", "\ufdd0:update-pie"], !0), "\ufdd0:factory", function(a) {
-  return presentable.examples.pie.d3.attr.call(null, presentable.examples.pie.d3.attr.call(null, presentable.examples.pie.d3.append.call(null, presentable.examples.pie.d3.entered.call(null, presentable.examples.pie.d3.data.call(null, presentable.examples.pie.d3.select_STAR_.call(null, presentable.examples.pie.d3.attr.call(null, presentable.examples.pie.d3.append.call(null, presentable.examples.pie.d3.attr.call(null, presentable.examples.pie.d3.attr.call(null, presentable.examples.pie.d3.append.call(null, 
-  presentable.examples.pie.d3.select.call(null, presentable.core.view_of.call(null, (new cljs.core.Keyword("\ufdd0:parent")).call(null, a))), "\ufdd0:svg"), "\ufdd0:width", 150), "\ufdd0:height", 150), "\ufdd0:g"), "\ufdd0:transform", [cljs.core.str("translate("), cljs.core.str(75), cljs.core.str(","), cljs.core.str(75), cljs.core.str(")")].join("")), "\ufdd0:.arc"), presentable.examples.pie.pie.call(null, cljs.core.vals.call(null, (new cljs.core.Keyword("\ufdd0:data")).call(null, cljs.core.deref.call(null, 
-  (new cljs.core.Keyword("\ufdd0:model")).call(null, a))))))), "\ufdd0:path"), "\ufdd0:class", "\ufdd0:arc"), "\ufdd0:d", presentable.examples.pie.arc)
+  return presentable.examples.pie.views.d3_pie_chart.call(null, (new cljs.core.Keyword("\ufdd0:parent")).call(null, a), (new cljs.core.Keyword("\ufdd0:data")).call(null, cljs.core.deref.call(null, (new cljs.core.Keyword("\ufdd0:model")).call(null, a))))
 });
+presentable.core.behavior.call(null, "\ufdd0:update-pie", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.changed"], !0), "\ufdd0:reaction", presentable.examples.pie.views.d3_update_pie);
 presentable.examples.pie.the_app = presentable.core.make.call(null, "\ufdd0:grid", "\ufdd0:children", cljs.core.PersistentVector.fromArray([presentable.core.make.call(null, "\ufdd0:group", "\ufdd0:children", cljs.core.PersistentVector.fromArray([presentable.core.make.call(null, "\ufdd0:column", "\ufdd0:children", cljs.core.PersistentVector.fromArray([presentable.core.make.call(null, "\ufdd0:editor")], !0)), presentable.core.make.call(null, "\ufdd0:column", "\ufdd0:children", cljs.core.PersistentVector.fromArray([presentable.core.make.call(null, 
 "\ufdd0:pies")], !0))], !0))], !0));
 presentable.examples.pie.init = function() {
