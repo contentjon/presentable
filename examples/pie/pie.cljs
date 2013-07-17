@@ -92,6 +92,7 @@
   :triggers   [:.added :update.children]
   :behaviors  [:collection :add-pie :update-pies]
   :collection collection
+  :children   []
   :factory    #(vector :div.pies))
 
 (behavior :add-pie

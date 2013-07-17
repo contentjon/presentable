@@ -22,7 +22,7 @@
   (vector :button [(keyword (str "span." (name (:icon d))))]))
 
 (defn editor []
-  [:div
+  [:div.editor
     (ui/view-of (ui/make :button :icon :icon-plus))
     [:div.models]])
 

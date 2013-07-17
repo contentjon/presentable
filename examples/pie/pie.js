@@ -17671,7 +17671,7 @@ presentable.examples.pie.views.ink_button = function(a) {
   return cljs.core.vector.call(null, "\ufdd0:button", cljs.core.PersistentVector.fromArray([cljs.core.keyword.call(null, [cljs.core.str("span."), cljs.core.str(cljs.core.name.call(null, (new cljs.core.Keyword("\ufdd0:icon")).call(null, a)))].join(""))], !0))
 };
 presentable.examples.pie.views.editor = function() {
-  return cljs.core.PersistentVector.fromArray(["\ufdd0:div", presentable.core.view_of.call(null, presentable.core.make.call(null, "\ufdd0:button", "\ufdd0:icon", "\ufdd0:icon-plus")), cljs.core.PersistentVector.fromArray(["\ufdd0:div.models"], !0)], !0)
+  return cljs.core.PersistentVector.fromArray(["\ufdd0:div.editor", presentable.core.view_of.call(null, presentable.core.make.call(null, "\ufdd0:button", "\ufdd0:icon", "\ufdd0:icon-plus")), cljs.core.PersistentVector.fromArray(["\ufdd0:div.models"], !0)], !0)
 };
 presentable.examples.pie.views.pie_form_field = function(a) {
   var b = cljs.core.nth.call(null, a, 0, null), a = cljs.core.nth.call(null, a, 1, null), b = cljs.core.name.call(null, b);
@@ -18304,7 +18304,7 @@ presentable.core.behavior.call(null, "\ufdd0:update-children", "\ufdd0:triggers"
 presentable.core.presenter.call(null, "\ufdd0:pie-form", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.changed", "\ufdd0:.error", "\ufdd0:.change"], !0), "\ufdd0:behaviors", cljs.core.PersistentVector.fromArray(["\ufdd0:model", "\ufdd0:update-model"], !0), "\ufdd0:factory", function(a) {
   return presentable.examples.pie.views.ink_pie.call(null, (new cljs.core.Keyword("\ufdd0:data")).call(null, cljs.core.deref.call(null, (new cljs.core.Keyword("\ufdd0:model")).call(null, a))))
 });
-presentable.core.presenter.call(null, "\ufdd0:pies", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.added", "\ufdd0:update.children"], !0), "\ufdd0:behaviors", cljs.core.PersistentVector.fromArray(["\ufdd0:collection", "\ufdd0:add-pie", "\ufdd0:update-pies"], !0), "\ufdd0:collection", presentable.examples.pie.collection, "\ufdd0:factory", function() {
+presentable.core.presenter.call(null, "\ufdd0:pies", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.added", "\ufdd0:update.children"], !0), "\ufdd0:behaviors", cljs.core.PersistentVector.fromArray(["\ufdd0:collection", "\ufdd0:add-pie", "\ufdd0:update-pies"], !0), "\ufdd0:collection", presentable.examples.pie.collection, "\ufdd0:children", cljs.core.PersistentVector.EMPTY, "\ufdd0:factory", function() {
   return cljs.core.vector.call(null, "\ufdd0:div.pies")
 });
 presentable.core.behavior.call(null, "\ufdd0:add-pie", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.added"], !0), "\ufdd0:reaction", presentable.examples.pie.child_adder.call(null, "\ufdd0:pie"));
