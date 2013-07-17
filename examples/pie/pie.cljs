@@ -58,12 +58,13 @@
 ;; this behavior creates a new form when a model is added
 ;; the new form is set to edit the properties of the new model
 
+(defn child-adder [f]
+  (fn [parent model]
+    (ui/update! parent :children conj (f parent model))))
+
 (behavior :edit-model
   :triggers [:.added]
-  :reaction
-  (fn [editor model]
-    (->> (ui/make :pie-form :model model)
-         (ui/update! editor :children conj))))
+  :reaction (child-adder #(ui/make :pie-form :model %2)))
 
 (behavior :update-children
   :triggers [:update.children]
@@ -94,7 +95,7 @@
 
 (behavior :add-pie
   :triggers [:.added]
-  :reaction #(ui/update! %1 :children conj (ui/make :pie :parent %1 :model %2)))
+  :reaction (child-adder #(ui/make :pie :parent %1 :model %2)))
 
 ;; this presenter wraps a single pie chart and is bound to a single
 ;; model. it creates a binding between the layout of the pie chart and
