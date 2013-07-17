@@ -85,11 +85,11 @@
   "Calls the factory function of the instance and returns
    the result, which is the instances view"
   [instance]
-  (let [factory (:factory instance)
-        view    (factory instance)]
-    (if (vector? view)
-      (crate/html view)
-      view)))
+  (when-let [factory (:factory instance)]
+    (let [view (factory instance)]
+      (if (vector? view)
+        (crate/html view)
+        view))))
 
 (defn- trigger-dom [dom evt args]
   (js/jQuery.prototype.trigger.apply
@@ -103,13 +103,9 @@
    which will be visisble to every behaviour that gets
    called as a result"
   [id trigger & parameters]
-  (let [instance (->instance (->id id))]
-    (trigger-dom
-      (:view instance)
-      trigger
-      parameters)))
+  (trigger-dom (view-of id) trigger parameters))
 
-(defn- dom->botid
+(defn dom->botid
   "Returns the presenter id of the nearest parent,
    that has such an id attached to it as an attribute"
   [dom]
@@ -125,11 +121,18 @@
    propagated and will only result in reactions of the beaviours
    of this presenter"
   [id trigger & parameters]
-  (let [instance (->instance id)]
-    (doseq [behavior (->behaviors instance)]
-      (when (contains? (set (:triggers behavior)) trigger)
-        (when-let [reaction (:reaction behavior)]
-          (apply reaction instance parameters))))))
+  (let [instance (->instance (->id id))]
+    (doseq [behavior-type (:behaviors instance)]
+      (if-let [behavior (fetch :behaviors behavior-type)]
+        (when (contains? (set (:triggers behavior)) trigger)
+          (when-let [reaction (:reaction behavior)]
+            (apply reaction instance parameters)))
+        (-> (str "Can't resolve behavior "
+                 behavior-type
+                 " referenced by "
+                 (:type instance))
+            (js/Error.)
+            (throw))))))
 
 (defn- changes->triggers [changes]
   (map #(keyword (str "update." (name %)))
@@ -184,6 +187,21 @@
   (doseq [trigger (:triggers instance)]
     (register-trigger trigger (:id instance) view)))
 
+(defn- register-view [id instance view]
+  (doto (jayq/$ view)
+    (jayq/attr :presenter id)
+    (register-triggers instance))
+  view)
+
+(defn attach-view [id view]
+  (when view
+    (let [id   (->id id)
+          view (register-view id (->instance id) view)]
+      (swap! application
+             update-in
+             [:instances id]
+             assoc :view view))))
+
 (defn make
   "Creates a new presenter instance in the application state
    and returns its identifier"
@@ -192,11 +210,9 @@
     (let [id       (next-id)
           instance (make-instance prototype id args)
           view     (assemble instance)
-          result   (assoc instance :view view)]
-      (doto (jayq/$ view)
-        (jayq/attr :presenter id)
-        (register-triggers instance))
-      (extend-app :instances :id result)
+          result   (assoc instance
+                     :view (register-view id instance view))]
+      (extend-app :instances :id result)      
       (trigger! id :init nil)
       id)))
 
