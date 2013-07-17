@@ -60,6 +60,7 @@
 
 (defn child-adder [k]
   (fn [parent model]
+    (.log js/console model)
     (ui/update! parent :children conj (ui/make k :model model))))
 
 (behavior :edit-model
@@ -105,7 +106,7 @@
 (presenter :pie
   :triggers  [:.changed]
   :behaviors [:model :update-pie]
-  :factory   #(view/d3-pie-chart (:parent %) (:data @(:model %))))
+  :factory   #(view/d3-pie-chart (:data @(:model %))))
 
 (behavior :update-pies
   :triggers [:update.children]

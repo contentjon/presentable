@@ -74,10 +74,12 @@
   (append-impl [v selection]
     (let [res (-> (first v) (selector->name) (append-impl selection))
           ns   (handle-attrs res v)]
-      (doseq [n ns]
-        (if (vector? n)
-          (append-impl n res)
-          (text res n)))))
+      (reduce (fn [s n]
+                (if (vector? n)
+                  (append-impl n res)
+                  (text res n)))
+              res
+              ns)))
   js/Function
   (append-impl [f selection]
     (.append selection f)))

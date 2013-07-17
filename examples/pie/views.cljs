@@ -44,7 +44,8 @@
   (ink-form-view pie-form-field model))
 
 (defn update-forms [editor]
-  (-> (d3/select (ui/view-of editor) :.models)
+  (-> (d3/select (ui/view-of editor))
+      (d3/select :.models)
       (d3/select* :form)
       (d3/data (into-array (:children editor)))
       (d3/entered)
@@ -72,14 +73,15 @@
 
 (def root
   [:svg {:width 150 :height 150}
-    [:g {:transform (str "translate(" 75 "," 75 ")") }]])
+    [:g {:class "root"
+         :transform (str "translate(" 75 "," 75 ")")}]])
 
 (def pie-arc
   [:path {:class "arc" :d arc}])
 
 (defn d3-pie-chart [model]
   (let [dom (crate/html [:div.pie])]
-    (-> dom
+    (-> (d3/select dom)
         (d3/append root)
         (d3/select* :.arc)
         (d3/data (pie (vals model)))
@@ -89,9 +91,9 @@
     dom))
 
 (defn update-pies [pies]
-  (-> (d3/select (ui/view-of editor))
+  (-> (d3/select (ui/view-of pies))
       (d3/select* :.pie)
-      (d3/data (into-array (:children editor)))
+      (d3/data (into-array (:children pies)))
       (d3/entered)
       (d3/append ui/view-of)))
 
