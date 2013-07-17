@@ -45,10 +45,10 @@
 ;; model is added to the collection
 
 (presenter :editor
-  :triggers   [:button.click :.added]
-  :behaviors  [:collection :add-pie-model :edit-model]
+  :triggers   [:button.click :.added :update.children]
+  :behaviors  [:collection :add-pie-model :edit-model :update-children]
   :collection collection
-  :forms      []
+  :children   []
   :factory    view/editor)
 
 (behavior :add-pie-model
@@ -62,11 +62,12 @@
   :triggers [:.added]
   :reaction
   (fn [editor model]
-    (let [view (ui/view-of editor)
-          form (ui/make :pie-form :model model)]
-      (-> (jayq/$ :.models)
-          (jayq/append (ui/view-of form)))
-      (ui/update! editor :forms conj form))))
+    (->> (ui/make :pie-form :model model)
+         (ui/update! editor :children conj))))
+
+(behavior :update-children
+  :triggers [:update.children]
+  :reaction view/update-forms)
 
 ;; this presenter is bound to the events of a model through the :model
 ;; behavior. the task of the presenter is a two way binding between

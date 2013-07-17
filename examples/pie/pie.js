@@ -3389,22 +3389,22 @@ cljs.core.with_meta = function with_meta(b, c) {
   var d = cljs.core.fn_QMARK_.call(null, b);
   d && (d = b ? ((d = b.cljs$lang$protocol_mask$partition0$ & 262144) ? d : b.cljs$core$IWithMeta$) || (b.cljs$lang$protocol_mask$partition0$ ? 0 : cljs.core.type_satisfies_.call(null, cljs.core.IWithMeta, b)) : cljs.core.type_satisfies_.call(null, cljs.core.IWithMeta, b), d = !d);
   return d ? with_meta.call(null, function() {
-    if(void 0 === cljs.core.t7789) {
-      cljs.core.t7789 = {};
-      cljs.core.t7789 = function(b, c, d, e) {
+    if(void 0 === cljs.core.t4390) {
+      cljs.core.t4390 = {};
+      cljs.core.t4390 = function(b, c, d, e) {
         this.meta = b;
         this.o = c;
         this.with_meta = d;
-        this.meta7790 = e;
+        this.meta4391 = e;
         this.cljs$lang$protocol_mask$partition1$ = 0;
         this.cljs$lang$protocol_mask$partition0$ = 393217
       };
-      cljs.core.t7789.cljs$lang$type = !0;
-      cljs.core.t7789.cljs$lang$ctorStr = "cljs.core/t7789";
-      cljs.core.t7789.cljs$lang$ctorPrWriter = function(b, c) {
-        return cljs.core._write.call(null, c, "cljs.core/t7789")
+      cljs.core.t4390.cljs$lang$type = !0;
+      cljs.core.t4390.cljs$lang$ctorStr = "cljs.core/t4390";
+      cljs.core.t4390.cljs$lang$ctorPrWriter = function(b, c) {
+        return cljs.core._write.call(null, c, "cljs.core/t4390")
       };
-      var d = cljs.core.t7789.prototype, f = function(b, c) {
+      var d = cljs.core.t4390.prototype, f = function(b, c) {
         return cljs.core.apply.call(null, b.o, c)
       }, g = function(b, c) {
         var b = this, d = null;
@@ -3418,19 +3418,19 @@ cljs.core.with_meta = function with_meta(b, c) {
       };
       g.cljs$core$IFn$_invoke$arity$variadic = f;
       d.call = g;
-      cljs.core.t7789.prototype.apply = function(b, c) {
+      cljs.core.t4390.prototype.apply = function(b, c) {
         b = this;
         return b.call.apply(b, [b].concat(c.slice()))
       };
-      cljs.core.t7789.prototype.cljs$core$Fn$ = !0;
-      cljs.core.t7789.prototype.cljs$core$IMeta$_meta$arity$1 = function() {
-        return this.meta7790
+      cljs.core.t4390.prototype.cljs$core$Fn$ = !0;
+      cljs.core.t4390.prototype.cljs$core$IMeta$_meta$arity$1 = function() {
+        return this.meta4391
       };
-      cljs.core.t7789.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, c) {
-        return new cljs.core.t7789(this.meta, this.o, this.with_meta, c)
+      cljs.core.t4390.prototype.cljs$core$IWithMeta$_with_meta$arity$2 = function(b, c) {
+        return new cljs.core.t4390(this.meta, this.o, this.with_meta, c)
       }
     }
-    return new cljs.core.t7789(c, b, with_meta, null)
+    return new cljs.core.t4390(c, b, with_meta, null)
   }(), c) : cljs.core._with_meta.call(null, b, c)
 };
 cljs.core.meta = function(a) {
@@ -12863,6 +12863,10 @@ presentable.examples.pie.d3.handle_attrs = function(a, b) {
   var c = cljs.core.second.call(null, b);
   return cljs.core.map_QMARK_.call(null, c) ? (cljs.core.apply.call(null, presentable.examples.pie.d3.attr_STAR_, a, cljs.core.apply.call(null, cljs.core.concat, c)), cljs.core.nnext.call(null, b)) : cljs.core.next.call(null, b)
 };
+Function.prototype.presentable$examples$pie$d3$Append$ = !0;
+Function.prototype.presentable$examples$pie$d3$Append$append_impl$arity$2 = function(a, b) {
+  return b.append(a)
+};
 cljs.core.PersistentVector.prototype.presentable$examples$pie$d3$Append$ = !0;
 cljs.core.PersistentVector.prototype.presentable$examples$pie$d3$Append$append_impl$arity$2 = function(a, b) {
   for(var c = presentable.examples.pie.d3.append_impl.call(null, presentable.examples.pie.d3.selector__GT_name.call(null, cljs.core.first.call(null, a)), b), d = presentable.examples.pie.d3.handle_attrs.call(null, c, a), d = cljs.core.seq.call(null, d), e = null, f = 0, g = 0;;) {
@@ -17689,6 +17693,9 @@ presentable.examples.pie.views.ink_form_view = function(a, b) {
 presentable.examples.pie.views.ink_pie = function(a) {
   return presentable.examples.pie.views.ink_form_view.call(null, presentable.examples.pie.views.pie_form_field, a)
 };
+presentable.examples.pie.views.update_forms = function(a) {
+  return presentable.examples.pie.d3.append.call(null, presentable.examples.pie.d3.entered.call(null, presentable.examples.pie.d3.data.call(null, presentable.examples.pie.d3.select_STAR_.call(null, presentable.examples.pie.d3.select.call(null, presentable.examples.pie.d3.select.call(null, presentable.core.view_of.call(null, a)), "\ufdd0:.models"), "\ufdd0:form"), cljs.core.into_array.call(null, (new cljs.core.Keyword("\ufdd0:children")).call(null, a)))), presentable.core.view_of)
+};
 presentable.examples.pie.views.pie = function(a) {
   return d3.layout.pie().call(null, cljs.core.into_array.call(null, a))
 };
@@ -18023,6 +18030,13 @@ presentable.core.behavior.call(null, "\ufdd0:model", "\ufdd0:triggers", cljs.cor
   });
   return b
 });
+presentable.examples.pie.model.update_cmd = function(a, b) {
+  return cljs.core.PersistentVector.fromArray(["\ufdd0:update-in", cljs.core.PersistentVector.fromArray(["\ufdd0:data"], !0), "\ufdd0:assoc", b, a.value | 0], !0)
+};
+presentable.core.behavior.call(null, "\ufdd0:update-model", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.change"], !0), "\ufdd0:reaction", function(a, b) {
+  var c = b.target, d = cljs.core.keyword.call(null, c.getAttribute("name"));
+  return tbn.core.update_BANG_.call(null, (new cljs.core.Keyword("\ufdd0:model")).call(null, a), presentable.examples.pie.model.update_cmd.call(null, c, d))
+});
 tbn.commands = {};
 tbn.commands.command__GT_fn = function() {
   var a = cljs.core.atom.call(null, cljs.core.ObjMap.EMPTY), b = cljs.core.atom.call(null, cljs.core.ObjMap.EMPTY), c = cljs.core.atom.call(null, cljs.core.ObjMap.EMPTY), d = cljs.core.atom.call(null, cljs.core.ObjMap.EMPTY), e = cljs.core.get.call(null, cljs.core.ObjMap.EMPTY, "\ufdd0:hierarchy", cljs.core.get_global_hierarchy.call(null)), f = cljs.core.MultiFn, g = function(a, b) {
@@ -18147,7 +18161,7 @@ tbn.model.Model.prototype.tbn$mutable$IMUpdate$_update_BANG_$arity$2 = function(
   var c = this;
   return tbn.store.update_BANG_.call(null, c.store, c.collection, (new cljs.core.Keyword("\ufdd0:_id")).call(null, cljs.core.deref.call(null, c.local)), b, function(a, b) {
     if(cljs.core.truth_(a)) {
-      return tbn.events.trigger.call(null, c.local, "\ufdd0:error", a)
+      return tbn.events.trigger.call(null, c.channels, "\ufdd0:error", a)
     }
     var f = cljs.core.deref.call(null, c.local), g = cljs.core.reset_BANG_.call(null, c.local, b);
     return tbn.events.trigger.call(null, c.channels, "\ufdd0:changed", f, g)
@@ -18279,22 +18293,16 @@ presentable.core.presenter.call(null, "\ufdd0:grid", "\ufdd0:factory", presentab
 presentable.core.presenter.call(null, "\ufdd0:group", "\ufdd0:factory", presentable.examples.pie.views.ink_group);
 presentable.core.presenter.call(null, "\ufdd0:column", "\ufdd0:width", 50, "\ufdd0:factory", presentable.examples.pie.views.ink_column);
 presentable.core.presenter.call(null, "\ufdd0:button", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.click"], !0), "\ufdd0:icon", null, "\ufdd0:factory", presentable.examples.pie.views.ink_button);
-presentable.core.presenter.call(null, "\ufdd0:editor", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:button.click", "\ufdd0:.added"], !0), "\ufdd0:behaviors", cljs.core.PersistentVector.fromArray(["\ufdd0:collection", "\ufdd0:add-pie-model", "\ufdd0:edit-model"], !0), "\ufdd0:collection", presentable.examples.pie.collection, "\ufdd0:forms", cljs.core.PersistentVector.EMPTY, "\ufdd0:factory", presentable.examples.pie.views.editor);
+presentable.core.presenter.call(null, "\ufdd0:editor", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:button.click", "\ufdd0:.added", "\ufdd0:update.children"], !0), "\ufdd0:behaviors", cljs.core.PersistentVector.fromArray(["\ufdd0:collection", "\ufdd0:add-pie-model", "\ufdd0:edit-model", "\ufdd0:update-children"], !0), "\ufdd0:collection", presentable.examples.pie.collection, "\ufdd0:children", cljs.core.PersistentVector.EMPTY, "\ufdd0:factory", presentable.examples.pie.views.editor);
 presentable.core.behavior.call(null, "\ufdd0:add-pie-model", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:button.click"], !0), "\ufdd0:reaction", function(a) {
   return tbn.core.conj_BANG_.call(null, (new cljs.core.Keyword("\ufdd0:collection")).call(null, a), cljs.core.PersistentArrayMap.fromArray(["\ufdd0:data", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:a", 1, "\ufdd0:b", 1, "\ufdd0:c", 1], !0)], !0))
 });
 presentable.core.behavior.call(null, "\ufdd0:edit-model", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.added"], !0), "\ufdd0:reaction", function(a, b) {
-  presentable.core.view_of.call(null, a);
-  var c = presentable.core.make.call(null, "\ufdd0:pie-form", "\ufdd0:model", b);
-  jayq.core.append.call(null, jayq.core.$.call(null, "\ufdd0:.models"), presentable.core.view_of.call(null, c));
-  return presentable.core.update_BANG_.call(null, a, "\ufdd0:forms", cljs.core.conj, c)
+  return presentable.core.update_BANG_.call(null, a, "\ufdd0:children", cljs.core.conj, presentable.core.make.call(null, "\ufdd0:pie-form", "\ufdd0:model", b))
 });
+presentable.core.behavior.call(null, "\ufdd0:update-children", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:update.children"], !0), "\ufdd0:reaction", presentable.examples.pie.views.update_forms);
 presentable.core.presenter.call(null, "\ufdd0:pie-form", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.changed", "\ufdd0:.error", "\ufdd0:.change"], !0), "\ufdd0:behaviors", cljs.core.PersistentVector.fromArray(["\ufdd0:model", "\ufdd0:update-model"], !0), "\ufdd0:factory", function(a) {
   return presentable.examples.pie.views.ink_pie.call(null, (new cljs.core.Keyword("\ufdd0:data")).call(null, cljs.core.deref.call(null, (new cljs.core.Keyword("\ufdd0:model")).call(null, a))))
-});
-presentable.core.behavior.call(null, "\ufdd0:update-model", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.change"], !0), "\ufdd0:reaction", function(a, b) {
-  var c = jayq.core.$.call(null, b.target), d = cljs.core.keyword.call(null, jayq.core.attr.call(null, c, "name"));
-  return tbn.core.update_BANG_.call(null, (new cljs.core.Keyword("\ufdd0:model")).call(null, a), cljs.core.PersistentVector.fromArray(["\ufdd0:update-in", cljs.core.PersistentVector.fromArray(["\ufdd0:data"], !0), "\ufdd0:assoc", d, jayq.core.val.call(null, c)], !0))
 });
 presentable.core.presenter.call(null, "\ufdd0:pies", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.added"], !0), "\ufdd0:behaviors", cljs.core.PersistentVector.fromArray(["\ufdd0:collection", "\ufdd0:add-pie"], !0), "\ufdd0:collection", presentable.examples.pie.collection, "\ufdd0:factory", function() {
   return cljs.core.vector.call(null, "\ufdd0:div.pies")

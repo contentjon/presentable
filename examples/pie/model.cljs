@@ -1,5 +1,6 @@
 (ns presentable.examples.pie.model
   (:require [presentable.core :as ui]
+            [tbn.core         :as tbn]
             [tbn.events       :as evt]))
 
 (ui/behavior :collection
@@ -20,12 +21,12 @@
       (evt/on :error #(ui/raise! p :.error %1 %2)))))
 
 (defn update-cmd [dom n]
-  [:update-in [:data] :assoc n (jayq/val dom)])
+  [:update-in [:data] :assoc n (int (.-value dom))])
 
-(behavior :update-model
+(ui/behavior :update-model
   :triggers [:.change]
   :reaction
   (fn [form evt]
-    (let [dom (jayq/$ (.-target evt))
-          n   (keyword (jayq/attr dom "name"))]
+    (let [dom (.-target evt)
+          n   (keyword (.getAttribute dom "name"))]
       (tbn/update! (:model form) (update-cmd dom n)))))

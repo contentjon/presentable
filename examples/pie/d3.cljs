@@ -77,7 +77,10 @@
       (doseq [n ns]
         (if (vector? n)
           (append-impl n res)
-          (text res n))))))
+          (text res n)))))
+  js/Function
+  (append-impl [f selection]
+    (.append selection f)))
 
 (defn append [selection element]
   (append-impl (selector->name element) selection))

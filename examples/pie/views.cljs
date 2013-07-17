@@ -42,6 +42,14 @@
 (defn ink-pie [model]
   (ink-form-view pie-form-field model))
 
+(defn update-forms [editor]
+  (-> (d3/select (ui/view-of editor))
+      (d3/select :.models)
+      (d3/select* :form)
+      (d3/data (into-array (:children editor)))
+      (d3/entered)
+      (d3/append ui/view-of)))
+
 (defn pie [data]
   (let [layout (js/d3.layout.pie)]
     (layout (into-array data))))
