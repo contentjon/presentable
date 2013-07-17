@@ -1,5 +1,6 @@
 (ns presentable.examples.pie.views
-  (:require [jayq.core                   :as jayq]
+  (:require [crate.core                  :as crate]
+            [jayq.core                   :as jayq]
             [presentable.core            :as ui]
             [presentable.examples.pie.d3 :as d3]))
 
@@ -43,8 +44,7 @@
   (ink-form-view pie-form-field model))
 
 (defn update-forms [editor]
-  (-> (d3/select (ui/view-of editor))
-      (d3/select :.models)
+  (-> (d3/select (ui/view-of editor) :.models)
       (d3/select* :form)
       (d3/data (into-array (:children editor)))
       (d3/entered)
@@ -70,21 +70,30 @@
               "#d0743c"
               "#ff8c00"))))
 
-(defn d3-pie-chart [parent model]
-  (let [svg (-> (d3/select (ui/view-of parent)) (d3/append :svg))]
-    (-> svg
-        (d3/attr :width 150)
-        (d3/attr :height 150)
-        (d3/append :g)
-        (d3/attr :transform (str "translate(" 75 "," 75 ")"))
+(def root
+  [:svg {:width 150 :height 150}
+    [:g {:transform (str "translate(" 75 "," 75 ")") }]])
+
+(def pie-arc
+  [:path {:class "arc" :d arc}])
+
+(defn d3-pie-chart [model]
+  (let [dom (crate/html [:div.pie])]
+    (-> dom
+        (d3/append root)
         (d3/select* :.arc)
         (d3/data (pie (vals model)))
         (d3/entered)
-        (d3/append :path)
-        (d3/attr :class "arc")
-        (d3/attr :d arc)
+        (d3/append pie-arc)
         (d3/css :fill (fn [d i] (color i))))
-    (.node svg)))
+    dom))
+
+(defn update-pies [pies]
+  (-> (d3/select (ui/view-of editor))
+      (d3/select* :.pie)
+      (d3/data (into-array (:children editor)))
+      (d3/entered)
+      (d3/append ui/view-of)))
 
 (defn d3-update-pie [d _ model]
   (-> (d3/select (ui/view-of d))

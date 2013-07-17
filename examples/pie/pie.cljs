@@ -58,13 +58,13 @@
 ;; this behavior creates a new form when a model is added
 ;; the new form is set to edit the properties of the new model
 
-(defn child-adder [f]
+(defn child-adder [k]
   (fn [parent model]
-    (ui/update! parent :children conj (f parent model))))
+    (ui/update! parent :children conj (ui/make k :model model))))
 
 (behavior :edit-model
   :triggers [:.added]
-  :reaction (child-adder #(ui/make :pie-form :model %2)))
+  :reaction (child-adder :pie-form))
 
 (behavior :update-children
   :triggers [:update.children]
@@ -88,14 +88,14 @@
 ;; models get added to the collection
 
 (presenter :pies
-  :triggers   [:.added]
-  :behaviors  [:collection :add-pie]
+  :triggers   [:.added :update.children]
+  :behaviors  [:collection :add-pie :update-pies]
   :collection collection
   :factory    #(vector :div.pies))
 
 (behavior :add-pie
   :triggers [:.added]
-  :reaction (child-adder #(ui/make :pie :parent %1 :model %2)))
+  :reaction (child-adder :pie))
 
 ;; this presenter wraps a single pie chart and is bound to a single
 ;; model. it creates a binding between the layout of the pie chart and
@@ -106,6 +106,10 @@
   :triggers  [:.changed]
   :behaviors [:model :update-pie]
   :factory   #(view/d3-pie-chart (:parent %) (:data @(:model %))))
+
+(behavior :update-pies
+  :triggers [:update.children]
+  :reaction view/update-pies)
 
 (behavior :update-pie
   :triggers [:.changed]

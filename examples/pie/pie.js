@@ -17694,20 +17694,24 @@ presentable.examples.pie.views.ink_pie = function(a) {
   return presentable.examples.pie.views.ink_form_view.call(null, presentable.examples.pie.views.pie_form_field, a)
 };
 presentable.examples.pie.views.update_forms = function(a) {
-  return presentable.examples.pie.d3.append.call(null, presentable.examples.pie.d3.entered.call(null, presentable.examples.pie.d3.data.call(null, presentable.examples.pie.d3.select_STAR_.call(null, presentable.examples.pie.d3.select.call(null, presentable.examples.pie.d3.select.call(null, presentable.core.view_of.call(null, a)), "\ufdd0:.models"), "\ufdd0:form"), cljs.core.into_array.call(null, (new cljs.core.Keyword("\ufdd0:children")).call(null, a)))), presentable.core.view_of)
+  return presentable.examples.pie.d3.append.call(null, presentable.examples.pie.d3.entered.call(null, presentable.examples.pie.d3.data.call(null, presentable.examples.pie.d3.select_STAR_.call(null, presentable.examples.pie.d3.select.call(null, presentable.core.view_of.call(null, a), "\ufdd0:.models"), "\ufdd0:form"), cljs.core.into_array.call(null, (new cljs.core.Keyword("\ufdd0:children")).call(null, a)))), presentable.core.view_of)
 };
 presentable.examples.pie.views.pie = function(a) {
   return d3.layout.pie().call(null, cljs.core.into_array.call(null, a))
 };
 presentable.examples.pie.views.arc = d3.svg.arc().outerRadius(75).innerRadius(45);
 presentable.examples.pie.views.color = d3.scale.ordinal.call(null).range("#98abc5 #8a89a6 #7b6888 #6b486b #a05d56 #d0743c #ff8c00".split(" "));
-presentable.examples.pie.views.d3_pie_chart = function(a, b) {
-  var c = presentable.examples.pie.d3.append.call(null, presentable.examples.pie.d3.select.call(null, presentable.core.view_of.call(null, a)), "\ufdd0:svg");
-  presentable.examples.pie.d3.css.call(null, presentable.examples.pie.d3.attr.call(null, presentable.examples.pie.d3.attr.call(null, presentable.examples.pie.d3.append.call(null, presentable.examples.pie.d3.entered.call(null, presentable.examples.pie.d3.data.call(null, presentable.examples.pie.d3.select_STAR_.call(null, presentable.examples.pie.d3.attr.call(null, presentable.examples.pie.d3.append.call(null, presentable.examples.pie.d3.attr.call(null, presentable.examples.pie.d3.attr.call(null, c, 
-  "\ufdd0:width", 150), "\ufdd0:height", 150), "\ufdd0:g"), "\ufdd0:transform", [cljs.core.str("translate("), cljs.core.str(75), cljs.core.str(","), cljs.core.str(75), cljs.core.str(")")].join("")), "\ufdd0:.arc"), presentable.examples.pie.views.pie.call(null, cljs.core.vals.call(null, b)))), "\ufdd0:path"), "\ufdd0:class", "arc"), "\ufdd0:d", presentable.examples.pie.views.arc), "\ufdd0:fill", function(a, b) {
+presentable.examples.pie.views.root = cljs.core.PersistentVector.fromArray(["\ufdd0:svg", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:width", 150, "\ufdd0:height", 150], !0), cljs.core.PersistentVector.fromArray(["\ufdd0:g", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:transform", [cljs.core.str("translate("), cljs.core.str(75), cljs.core.str(","), cljs.core.str(75), cljs.core.str(")")].join("")], !0)], !0)], !0);
+presentable.examples.pie.views.pie_arc = cljs.core.PersistentVector.fromArray(["\ufdd0:path", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:class", "arc", "\ufdd0:d", presentable.examples.pie.views.arc], !0)], !0);
+presentable.examples.pie.views.d3_pie_chart = function(a) {
+  var b = crate.core.html.call(null, cljs.core.PersistentVector.fromArray(["\ufdd0:div.pie"], !0));
+  presentable.examples.pie.d3.css.call(null, presentable.examples.pie.d3.append.call(null, presentable.examples.pie.d3.entered.call(null, presentable.examples.pie.d3.data.call(null, presentable.examples.pie.d3.select_STAR_.call(null, presentable.examples.pie.d3.append.call(null, b, presentable.examples.pie.views.root), "\ufdd0:.arc"), presentable.examples.pie.views.pie.call(null, cljs.core.vals.call(null, a)))), presentable.examples.pie.views.pie_arc), "\ufdd0:fill", function(a, b) {
     return presentable.examples.pie.views.color.call(null, b)
   });
-  return c.node()
+  return b
+};
+presentable.examples.pie.views.update_pies = function() {
+  return presentable.examples.pie.d3.append.call(null, presentable.examples.pie.d3.entered.call(null, presentable.examples.pie.d3.data.call(null, presentable.examples.pie.d3.select_STAR_.call(null, presentable.examples.pie.d3.select.call(null, presentable.core.view_of.call(null, presentable.examples.pie.views.editor)), "\ufdd0:.pie"), cljs.core.into_array.call(null, (new cljs.core.Keyword("\ufdd0:children")).call(null, presentable.examples.pie.views.editor)))), presentable.core.view_of)
 };
 presentable.examples.pie.views.d3_update_pie = function(a, b, c) {
   return presentable.examples.pie.d3.attr.call(null, presentable.examples.pie.d3.data.call(null, presentable.examples.pie.d3.select_STAR_.call(null, presentable.examples.pie.d3.select.call(null, presentable.examples.pie.d3.select.call(null, presentable.core.view_of.call(null, a)), "\ufdd0:g"), "\ufdd0:.arc"), presentable.examples.pie.views.pie.call(null, cljs.core.vals.call(null, (new cljs.core.Keyword("\ufdd0:data")).call(null, c)))), "\ufdd0:d", presentable.examples.pie.views.arc)
@@ -18297,22 +18301,24 @@ presentable.core.presenter.call(null, "\ufdd0:editor", "\ufdd0:triggers", cljs.c
 presentable.core.behavior.call(null, "\ufdd0:add-pie-model", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:button.click"], !0), "\ufdd0:reaction", function(a) {
   return tbn.core.conj_BANG_.call(null, (new cljs.core.Keyword("\ufdd0:collection")).call(null, a), cljs.core.PersistentArrayMap.fromArray(["\ufdd0:data", cljs.core.PersistentArrayMap.fromArray(["\ufdd0:a", 1, "\ufdd0:b", 1, "\ufdd0:c", 1], !0)], !0))
 });
-presentable.core.behavior.call(null, "\ufdd0:edit-model", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.added"], !0), "\ufdd0:reaction", function(a, b) {
-  return presentable.core.update_BANG_.call(null, a, "\ufdd0:children", cljs.core.conj, presentable.core.make.call(null, "\ufdd0:pie-form", "\ufdd0:model", b))
-});
+presentable.examples.pie.child_adder = function(a) {
+  return function(b, c) {
+    return presentable.core.update_BANG_.call(null, b, "\ufdd0:children", cljs.core.conj, presentable.core.make.call(null, a, "\ufdd0:model", c))
+  }
+};
+presentable.core.behavior.call(null, "\ufdd0:edit-model", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.added"], !0), "\ufdd0:reaction", presentable.examples.pie.child_adder.call(null, "\ufdd0:pie-form"));
 presentable.core.behavior.call(null, "\ufdd0:update-children", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:update.children"], !0), "\ufdd0:reaction", presentable.examples.pie.views.update_forms);
 presentable.core.presenter.call(null, "\ufdd0:pie-form", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.changed", "\ufdd0:.error", "\ufdd0:.change"], !0), "\ufdd0:behaviors", cljs.core.PersistentVector.fromArray(["\ufdd0:model", "\ufdd0:update-model"], !0), "\ufdd0:factory", function(a) {
   return presentable.examples.pie.views.ink_pie.call(null, (new cljs.core.Keyword("\ufdd0:data")).call(null, cljs.core.deref.call(null, (new cljs.core.Keyword("\ufdd0:model")).call(null, a))))
 });
-presentable.core.presenter.call(null, "\ufdd0:pies", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.added"], !0), "\ufdd0:behaviors", cljs.core.PersistentVector.fromArray(["\ufdd0:collection", "\ufdd0:add-pie"], !0), "\ufdd0:collection", presentable.examples.pie.collection, "\ufdd0:factory", function() {
+presentable.core.presenter.call(null, "\ufdd0:pies", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.added", "\ufdd0:update.children"], !0), "\ufdd0:behaviors", cljs.core.PersistentVector.fromArray(["\ufdd0:collection", "\ufdd0:add-pie", "\ufdd0:update-pies"], !0), "\ufdd0:collection", presentable.examples.pie.collection, "\ufdd0:factory", function() {
   return cljs.core.vector.call(null, "\ufdd0:div.pies")
 });
-presentable.core.behavior.call(null, "\ufdd0:add-pie", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.added"], !0), "\ufdd0:reaction", function(a, b) {
-  return presentable.core.update_BANG_.call(null, a, "\ufdd0:children", cljs.core.conj, presentable.core.make.call(null, "\ufdd0:pie", "\ufdd0:parent", a, "\ufdd0:model", b))
-});
+presentable.core.behavior.call(null, "\ufdd0:add-pie", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.added"], !0), "\ufdd0:reaction", presentable.examples.pie.child_adder.call(null, "\ufdd0:pie"));
 presentable.core.presenter.call(null, "\ufdd0:pie", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.changed"], !0), "\ufdd0:behaviors", cljs.core.PersistentVector.fromArray(["\ufdd0:model", "\ufdd0:update-pie"], !0), "\ufdd0:factory", function(a) {
   return presentable.examples.pie.views.d3_pie_chart.call(null, (new cljs.core.Keyword("\ufdd0:parent")).call(null, a), (new cljs.core.Keyword("\ufdd0:data")).call(null, cljs.core.deref.call(null, (new cljs.core.Keyword("\ufdd0:model")).call(null, a))))
 });
+presentable.core.behavior.call(null, "\ufdd0:update-pies", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:update.children"], !0), "\ufdd0:reaction", presentable.examples.pie.views.update_pies);
 presentable.core.behavior.call(null, "\ufdd0:update-pie", "\ufdd0:triggers", cljs.core.PersistentVector.fromArray(["\ufdd0:.changed"], !0), "\ufdd0:reaction", presentable.examples.pie.views.d3_update_pie);
 presentable.examples.pie.the_app = presentable.core.make.call(null, "\ufdd0:grid", "\ufdd0:children", cljs.core.PersistentVector.fromArray([presentable.core.make.call(null, "\ufdd0:group", "\ufdd0:children", cljs.core.PersistentVector.fromArray([presentable.core.make.call(null, "\ufdd0:column", "\ufdd0:children", cljs.core.PersistentVector.fromArray([presentable.core.make.call(null, "\ufdd0:editor")], !0)), presentable.core.make.call(null, "\ufdd0:column", "\ufdd0:children", cljs.core.PersistentVector.fromArray([presentable.core.make.call(null, 
 "\ufdd0:pies")], !0))], !0))], !0));
