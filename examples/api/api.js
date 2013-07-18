@@ -47,26 +47,23 @@ ui.presenter("menu", {
     }
 })
 
-ui.behavior("change-color", function(p, evt) {
-    evt.preventDefault()
-    $(p.view)
-        .removeClass("red blue green")
-        .addClass($(evt.target).text())
-  })
+var class_setter = function(classes) {
+    return function(p, evt) {
+        evt.preventDefault()
+        $(p.view)
+            .removeClass(classes,join(" "))
+            .addClass($(evt.target).text())
+    }
+}
 
-ui.behavior("change-atyle", function(p, evt) {
-    evt.preventDefault()
-    $(p.view)
-        .removeClass("flat rounded")
-        .addClass($(evt.target).text())
-  })
+ui.behavior("change-color", class_setter(["red" "green" "blue"]))
+ui.behavior("change-style", class_setter(["flat" "rounded"]))
 
 // declarative ui description. this could also be loaded from a back
 // end data source
 
 var color_menu = ui.make('menu', {
-    entries: ["red", "green", "blue"], 
-    styles:  ["horizontal"]
+    entries: ["red", "green", "blue"],
     on: {
         "click": ["change-color"]
     }
