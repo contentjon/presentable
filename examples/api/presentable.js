@@ -17439,6 +17439,10 @@ presentable.presenter = function(a, b) {
   return cljs.core.apply.call(null, presentable.core.presenter, cljs.core.keyword.call(null, a), cljs.core.apply.call(null, cljs.core.concat, cljs.core.update_in.call(null, cljs.core.js__GT_clj.call(null, b, "\ufdd0:keywordize-keys", !0), cljs.core.PersistentVector.fromArray(["\ufdd0:factory"], !0), presentable.wrap)))
 };
 goog.exportSymbol("presentable.presenter", presentable.presenter);
+presentable.behavior = function(a, b) {
+  return presentable.core.behavior.call(null, a, b)
+};
+goog.exportSymbol("presentable.behavior", presentable.behavior);
 presentable.make = function() {
   var a = null, b = function(b) {
     return a.call(null, b, {})

@@ -19,6 +19,9 @@
                            [:factory]
                            wrap))))
 
+(defn ^:export behavior [n f]
+  (c/behavior n f))
+
 (defn ^:export make
   ([n o]
      (apply c/make (keyword n) (obj->args o)))
