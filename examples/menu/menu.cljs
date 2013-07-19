@@ -37,17 +37,13 @@
 ;; to the view factory function
 
 (presenter :menu
-  :behaviors []
-  :triggers  [:item.color-picked]
-  :factory   ink-menu-view)
+  :factory ink-menu-view)
 
 ;; the menu item presenter reacts to clicks and can be combined with
 ;; behaviors to react to those clicks. by default an item changes the
 ;; color of the menu when clicked
 
 (presenter :item
-  :behaviors []
-  :triggers  [:.click]
   :label     "You forgot the label!"
   :factory   ink-menu-item)
 
@@ -57,23 +53,17 @@
 
 ;; items trigger a special activate event when they get clicked
 
-(behavior :color-picked
-  :triggers [:.click]
-  :reaction #(ui/raise! %1 :color-picked (:color %1)))
+(behavior :color-picked #(ui/raise! %1 :color-picked (:color %1)))
 
 ;; adding this behavior prevents the default behavior of links,
 ;; which would otherwise reload the page
 
-(behavior :prevent-default
-  :triggers [:.click]
-  :reaction #(.preventDefault %2))
+(behavior :prevent-default #(.preventDefault %2))
 
 ;; just a cheap effect that changes the color class of an element
 ;; when an item gets activated
 
 (behavior :change-color
-  :triggers [:item.color-picked]
-  :reaction
   (fn [presenter evt color]
     (let [classes (str/join " " (map name colors))]
       (-> (jayq/$ :.menu (ui/view-of presenter))
@@ -84,12 +74,15 @@
 ;;; constructor functions
 
 (defn menu [& children]
-  (ui/make :menu :children (vec children)))
+  (ui/make :menu
+           :children (vec children)
+           :on       {:item.color-picked [:change-color]}))
 
 (defn item [label color action]
-  (let [item (ui/make :item :label label :color color)]
-    (ui/add-behaviors! item action :prevent-default)
-    item))
+  (ui/make :item
+           :label label
+           :color color
+           :on    {:.click [action]}))
 
 ;; a submenu uses the item presenter but changes its view so a
 ;; fold out menu is displayed instead of a clickable button
@@ -107,7 +100,5 @@
            colors))))
 
 (defn ^:export init []
-  ;; finally lets add some behavior to the presenter
-  (ui/add-behaviors! the-menu :change-color)
   (-> (jayq/$ :#content)
       (jayq/append (ui/view-of the-menu))))

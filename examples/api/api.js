@@ -7,8 +7,8 @@ var views = function(ps) {
 
 ui.presenter("app", {
 
-    gutters: "half-gutters", // the ink gutter class to use
-
+    gutters: "gutters", // the ink gutter class to use
+    
     factory: function(p) {
       var view =
         $(mu.render(
@@ -33,6 +33,10 @@ ui.presenter("column", {
 ui.presenter("menu", {
 
     entries: [],
+
+    on: { 
+      ".click": ["prevent-default"] 
+    },
     
     factory: function(p) {
         return $(mu.render(
@@ -49,15 +53,17 @@ ui.presenter("menu", {
 
 var class_setter = function(classes) {
     return function(p, evt) {
-        evt.preventDefault()
-        $(p.view)
-            .removeClass(classes,join(" "))
-            .addClass($(evt.target).text())
+      evt.preventDefault()
+      $('.menu', p.view)
+        .removeClass(classes.join(" "))
+        .addClass($(evt.target).text())
     }
 }
 
-ui.behavior("change-color", class_setter(["red" "green" "blue"]))
-ui.behavior("change-style", class_setter(["flat" "rounded"]))
+ui.behavior("prevent-default", function(p, evt) { evt.preventDefault() })
+
+ui.behavior("change-color", class_setter(["red", "green", "blue"]))
+ui.behavior("change-style", class_setter(["flat", "rounded"]))
 
 // declarative ui description. this could also be loaded from a back
 // end data source
@@ -65,23 +71,23 @@ ui.behavior("change-style", class_setter(["flat" "rounded"]))
 var color_menu = ui.make('menu', {
     entries: ["red", "green", "blue"],
     on: {
-        "click": ["change-color"]
+      ".click": ["change-color"]
     }
 })
 
 var border_menu = ui.make('menu', {
     entries: ["rounded", "flat"],
     on: {
-        "click": ["change-style"]
+      ".click": ["change-style"]
     }
 })
 
 var app = ui.make('app', {
     children: [
-        [ ui.make('column', {
-            width: 100, 
-            children: [ color_menu, border_menu ]
-        })]
+      ui.make('column', {
+        width: 100,
+        children: [ color_menu, border_menu ]
+      })
     ]})
 
 $(function() {

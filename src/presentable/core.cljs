@@ -63,23 +63,39 @@
   [id coll]
   (assoc (apply hash-map coll) :type id))
 
+(defn- merge-behaviors [instance args]
+  (reduce (fn [s event]
+            (update-in s [:on event]
+                       concat
+                       (map keyword
+                            (get-in args [:on event]))))
+          instance
+          (keys (:on args))))
+
 (defn- make-instance
   [prototype id coll]
   (let [args (apply hash-map coll)]
     (-> prototype
-        (update-in [:behaviors] concat (:behaviors args))
-        (merge (dissoc args :behaviors))
+        (merge-behaviors args)
+        (merge (dissoc args :on))
         (assoc :id id))))
 
 (defn behavior
   "Creates a new behavior type in the application state"
-  [id & rest]
-  (extend-app :behaviors :type (make-type id rest)))
+  [id f]
+  (extend-app :behaviors :type (make-type id [:reaction f])))
+
+(defn- keywordize-behaviors [instance]
+  (reduce (fn [s event]
+            (update-in s [:on event]
+                       (partial map keyword)))
+          instance
+          (keys (:on instance))))
 
 (defn presenter
   "Creates a new presenter type in the application state"
   [id & rest]
-  (extend-app :presenters :type (make-type id rest)))
+  (extend-app :presenters :type (keywordize-behaviors (make-type id rest))))
 
 (defn- assemble
   "Calls the factory function of the instance and returns
@@ -122,11 +138,10 @@
    of this presenter"
   [id trigger & parameters]
   (let [instance (->instance (->id id))]
-    (doseq [behavior-type (:behaviors instance)]
+    (doseq [behavior-type (-> instance :on trigger)]
       (if-let [behavior (fetch :behaviors behavior-type)]
-        (when (contains? (set (:triggers behavior)) trigger)
-          (when-let [reaction (:reaction behavior)]
-            (apply reaction instance parameters)))
+        (let [reaction (:reaction behavior)]
+          (apply reaction instance parameters))
         (-> (str "Can't resolve behavior "
                  behavior-type
                  " referenced by "
@@ -139,7 +154,7 @@
        changes))
 
 (defn- triggers-on? [behavior triggers]
-  (some (set (:triggers behavior))
+  (some (set (keys (:on behavior)))
         triggers))
 
 (defn- trigger-change!
@@ -184,7 +199,7 @@
 (defn- register-triggers
   "Adds DOM events for all triggers of a presenter instance"
   [view instance]
-  (doseq [trigger (:triggers instance)]
+  (doseq [trigger (keys (:on instance))]
     (register-trigger trigger (:id instance) view)))
 
 (defn- register-view [id instance view]

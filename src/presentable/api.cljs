@@ -20,7 +20,9 @@
                            wrap))))
 
 (defn ^:export behavior [n f]
-  (c/behavior n f))
+  (c/behavior (keyword n)
+              (fn [p evt]
+                (f (clj->js p) evt))))
 
 (defn ^:export make
   ([n o]
@@ -31,5 +33,5 @@
 (defn ^:export view [p]
   (c/view-of p))
 
-(defn prop [p n]
+(defn ^:export prop [p n]
   (clj->js (get p (keyword n))))
