@@ -216,6 +216,10 @@
       (trigger! id :init nil)
       id)))
 
+(defn destroy [id]
+  (let [id (->id id)]
+    (swap! update-in [:presenter] dissoc id)))
+
 (defn update-behaviors [id f & args]
   (let [id (->id id)]
     (swap! application update-in [:instances id :behaviors] f args)))
