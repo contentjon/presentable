@@ -67,8 +67,9 @@
   [prototype id coll]
   (let [args (apply hash-map coll)]
     (-> prototype
+        (update-in [:triggers] concat (:triggers args))
         (update-in [:behaviors] concat (:behaviors args))
-        (merge (dissoc args :behaviors))
+        (merge (dissoc args :behaviors :triggers))
         (assoc :id id))))
 
 (defn behavior

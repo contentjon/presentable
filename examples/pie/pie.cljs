@@ -60,7 +60,6 @@
 
 (defn child-adder [k]
   (fn [parent model]
-    (.log js/console model)
     (ui/update! parent :children conj (ui/make k :model model))))
 
 (behavior :edit-model
