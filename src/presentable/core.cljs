@@ -92,6 +92,9 @@
         (crate/html view)
         view))))
 
+(defn destroy [id]
+  (swap! update-in [:instances] dissoc (->id id)))
+
 (defn- trigger-dom [dom evt args]
   (js/jQuery.prototype.trigger.apply
     (jayq/$ dom)
@@ -203,6 +206,11 @@
              [:instances id]
              assoc :view view))))
 
+(defn- on-dom-removed [id view]
+  (jayq/on (jayq/$ view) "DOMNodeRemovedFromDocumment"
+    (fn []
+      (destroy id))))
+
 (defn make
   "Creates a new presenter instance in the application state
    and returns its identifier"
@@ -213,13 +221,10 @@
           view     (assemble instance)
           result   (assoc instance
                      :view (register-view id instance view))]
+      (on-dom-removed id view)
       (extend-app :instances :id result)      
       (trigger! id :init nil)
       id)))
-
-(defn destroy [id]
-  (let [id (->id id)]
-    (swap! update-in [:presenter] dissoc id)))
 
 (defn update-behaviors [id f & args]
   (let [id (->id id)]
@@ -231,6 +236,11 @@
 (defn rem-behaviors! [id & behaviors]
   (let [behaviors (set behaviors)]
     (apply update-behaviors id (partial remove behaviors))))
+
+(defn ?
+  "Get a presenter property"
+  [id k]
+  (property id k))
 
 (defn !
   "Set a property of a presenter"
