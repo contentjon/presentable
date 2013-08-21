@@ -191,9 +191,16 @@
   (doseq [trigger (:triggers instance)]
     (register-trigger trigger (:id instance) view)))
 
+(defn- on-view-removed [view id]
+  (-> view
+      (jayq/on "DOMNodeRemovedFromDocumment"
+        (fn []
+          (destroy id)))))
+
 (defn- register-view [id instance view]
   (doto (jayq/$ view)
     (jayq/attr :presenter id)
+    (on-view-removed id)
     (register-triggers instance))
   view)
 
@@ -206,11 +213,6 @@
              [:instances id]
              assoc :view view))))
 
-(defn- on-dom-removed [id view]
-  (jayq/on (jayq/$ view) "DOMNodeRemovedFromDocumment"
-    (fn []
-      (destroy id))))
-
 (defn make
   "Creates a new presenter instance in the application state
    and returns its identifier"
@@ -221,7 +223,6 @@
           view     (assemble instance)
           result   (assoc instance
                      :view (register-view id instance view))]
-      (on-dom-removed id view)
       (extend-app :instances :id result)      
       (trigger! id :init nil)
       id)))
