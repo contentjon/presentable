@@ -211,30 +211,28 @@
              assoc :view view))))
 
 (defn- set-property [id k v]
-  (let [changes (apply hash-map kvs)]
-    (swap! application
-           update-in
-           [:instances id]
-           merge changes)
-    (trigger-change! id :update (keys changes))))
+  (swap! application
+         assoc-in
+         [:instances id k]
+         v)
+  (trigger-change! id :update [k]))
 
 (defn- monitor
   "Keep updating a presenter with values coming out of
    a cahnnel"
   [id k in]
-  (go
-   (loop []
-     (when-let [v (<! in)]
-       (when (exists? id)
-         (set-property id k v)
-         (recur))))))
+  (go (loop []
+        (when-let [v (<! in)]
+          (when (exists? id)
+            (set-property id k v)
+            (recur))))))
 
 (defn- handle-args
   "Inspect each arg for value that need special handling"
   [id args]
   (reduce (fn [m [k v]]
             (cond 
-              (satisfies? ap/ReadPort v) (monitor id k v)
+              (satisfies? ap/ReadPort v) (do (monitor id k v) m)
               :else
               ;; for the default case, simply use the value
               ;; directly
@@ -244,7 +242,7 @@
 
 (defn- make-instance
   [prototype id coll]
-  (let [args (apply hash-map coll)]
+  (let [args (->> coll (partition 2) (handle-args id))]
     (-> prototype
         (update-in [:triggers] concat (:triggers args))
         (update-in [:behaviors] concat (:behaviors args))
