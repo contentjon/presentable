@@ -3,11 +3,12 @@
   :hooks           [leiningen.cljsbuild]
   :plugins         [[lein-cljsbuild "0.3.2"]]
   :dependencies    [[org.clojure/clojure "1.5.1"]]
-  :profiles        {:dev {:dependencies [[crate       "0.2.4"]
-                                         [jayq        "2.4.0"]
-                                         [mocha-latte "0.1.1"]
-                                         [chai-latte  "0.1.2"]
-                                         [tbn         "0.1.0-SNAPSHOT"]]}}
+  :profiles        {:dev {:dependencies [[org.clojure/async.core "0.1.0-SNAPSHOT"]
+                                         [crate                  "0.2.4"]
+                                         [jayq                   "2.4.0"]
+                                         [mocha-latte            "0.1.1"]
+                                         [chai-latte             "0.1.2"]
+                                         [tbn                    "0.1.0-SNAPSHOT"]]}}
   :cljsbuild
   {:crossovers     []
    :crossover-path "crossover"
